@@ -6,7 +6,6 @@ import { IntlProvider, addLocaleData } from 'react-intl';
 import en from 'react-intl/locale-data/en';
 import fr from 'react-intl/locale-data/fr';
 
-import './App.css';
 import getRoutes from './config/routes';
 import translations from './translations';
 import Loading from './components/loading';

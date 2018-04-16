@@ -8,7 +8,9 @@
     "history": "^4.7.2",
     "jwt-decode": "^2.2.0",
     "lodash": "^4.17.5",
+    "node-sass-chokidar": "^1.2.2",
     "normalizr": "^3.2.4",
+    "npm-run-all": "^4.1.2",
     "react": "^16.3.1",
     "react-bootstrap": "^0.32.1",
     "react-dom": "^16.3.1",
@@ -26,8 +28,12 @@
     "redux-thunk": "^2.2.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build-css": "node-sass-chokidar ./src/index.scss ./src/index.css",
+    "watch-css": "npm run build-css && node-sass-chokidar ./src/index.scss ./src/index.css --watch",
+    "start-js": "react-scripts start",
+    "start": "npm-run-all -p watch-css start-js",
+    "build-js": "react-scripts build",
+    "build": "npm-run-all build-css build-js",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }

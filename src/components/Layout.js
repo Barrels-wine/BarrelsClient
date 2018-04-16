@@ -3,12 +3,13 @@ import * as React from 'react';
 
 import Logout from './logout';
 import Messages from '../components/messages';
-import Navigation from '../components/navigation';
+import Menu from '../components/navigation';
 
-const Layout = ({ children, router, routes, params }: PropsType) => (
+const Layout = ({ children }) => (
     <div id="wrapper">
         <Messages />
-        <Navigation router={router} />
+        {/* <Menu /> */}
+        {console.log(children)}
 
         <div id="page-wrapper" className="gray-bg">
             <div className="row border-bottom">
@@ -22,8 +23,8 @@ const Layout = ({ children, router, routes, params }: PropsType) => (
             </div>
             <div className="row wrapper border-bottom white-bg page-heading">
                 <div className="col-lg-10">
-                    {children && children.props.route.displayName &&
-                        <h2>{children.props.route.displayName}</h2>
+                    {children && children.props.displayName &&
+                        <h2>{children.props.displayName}</h2>
                     }
                 </div>
             </div>

@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import { Route } from 'react-router';
+import { Route, Switch } from 'react-router';
 import { FormattedMessage } from 'react-intl';
 
 import { logout } from '../actions/auth';
@@ -26,15 +26,17 @@ export default function getRoutes(store) {
     }
 
     return (
-        <Route>
+        <Switch>
             <Route name={routesNames.LOGIN} path="/login" component={Login} />
             <Route name={routesNames.LOGOUT} path="/logout" onEnter={handleLogout} />
-            <Route component={Authenticated}>
-                <Route exact path="/" component={Layout}>
-                <Route {...createRouteProps(routesNames.DASHBOARD)} path="" component={Dashboard} />
-                <Route {...createRouteProps('not_found')} path="*" component={NotFound} />
-                </Route>
-            </Route>
-        </Route>
+            <Route path="*" render={(props) => (
+              <Layout>
+                <Switch>
+                  <Route {...props} {...createRouteProps(routesNames.DASHBOARD)} path="" component={Dashboard} />
+                  <Route {...props} {...createRouteProps('not_found')} path="*" component={NotFound} />
+                </Switch>
+              </Layout>
+            )}/>
+        </Switch>
     );
 }

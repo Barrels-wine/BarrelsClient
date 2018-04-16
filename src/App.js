@@ -12,7 +12,7 @@ import translations from './translations';
 import Loading from './components/loading';
 
 class App extends React.Component {
-  constructor(props: PropsType) {
+  constructor(props) {
       super(props);
 
       this.state = {
@@ -37,7 +37,6 @@ class App extends React.Component {
     if (!translations[locale]) {
         locale = 'fr';
     }
-    console.log(translations[locale]);
 
     return (
         <Provider store={this.props.store}>

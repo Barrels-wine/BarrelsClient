@@ -1,22 +1,25 @@
 // @flow
 import * as React from 'react';
+import { Link } from 'react-router-dom';
+import { FormattedMessage } from 'react-intl';
 
-import Logout from './logout';
-import Messages from '../components/messages';
-import Menu from '../components/navigation';
+import Messages from '../messages';
+import Menu from '../navigation';
+import routesNames from '../../config/routesNames';
 
 const Layout = ({ children }) => (
     <div id="wrapper">
         <Messages />
         {/* <Menu /> */}
-        {console.log(children)}
 
         <div id="page-wrapper" className="gray-bg">
             <div className="row border-bottom">
                 <nav className="navbar navbar-static-top white-bg" role="navigation" style={{marginBottom: 0}}>
                     <ul className="nav navbar-top-links navbar-right">
                         <li>
-                            <Logout />
+                          <Link to={routesNames.LOGOUT}>
+                              <i className="fa fa-sign-out" /> <FormattedMessage id="login.logout" />
+                          </Link>
                         </li>
                     </ul>
                 </nav>

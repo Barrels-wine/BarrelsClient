@@ -6,21 +6,16 @@ import { IntlProvider, addLocaleData } from 'react-intl';
 import en from 'react-intl/locale-data/en';
 import fr from 'react-intl/locale-data/fr';
 
-import getRoutes from './config/routes';
+import Routes from './components/Routes';
 import translations from './translations';
-import Loading from './components/loading';
+import Loading from './components/Loading';
 
 class App extends React.Component {
   constructor(props) {
       super(props);
-
       this.state = {
           location: undefined,
       };
-
-      if (!this.routeConfig) {
-          this.routeConfig = getRoutes(this.props.store);
-      }
   }
 
   componentDidUpdate(prevState) {
@@ -37,15 +32,17 @@ class App extends React.Component {
         locale = 'fr';
     }
 
+    const { store, persistor, history } = this.props;
+
     return (
-        <Provider store={this.props.store}>
+        <Provider store={store}>
             <IntlProvider
                 locale={locale}
                 messages={translations[locale]}
             >
-                <PersistGate loading={<Loading />} persistor={this.props.persistor} >
-                    <ConnectedRouter history={this.props.history}>
-                        {this.routeConfig}
+                <PersistGate loading={<Loading />} persistor={persistor} >
+                    <ConnectedRouter history={history}>
+                        <Routes store={store} />
                     </ConnectedRouter>
                 </PersistGate>
             </IntlProvider>

@@ -1,6 +1,8 @@
-//@flow
+// @flow
 
 export default {
-    DASHBOARD: 'dashboard',
-    LOGOUT: 'logout',
+  LOGIN: '/login',
+  LOGOUT: '/logout',
+  NOT_FOUND: '/not-found',
+  DASHBOARD: '/dashboard',
 };

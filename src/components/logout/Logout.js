@@ -1,11 +1,20 @@
 // @flow
 import * as React from 'react';
-import { Link } from 'react-router-dom';
-import { FormattedMessage } from 'react-intl';
-import routesNames from './../../config/routesNames';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
-export default () => (
-    <Link to={routesNames.LOGOUT}>
-        <i className="fa fa-sign-out" /> <FormattedMessage id="login.logout" />
-    </Link>
-);
+import { logout } from '../../actions/auth';
+
+class Logout extends React.Component {
+    componentDidMount() {
+        this.props.logout();
+    }
+};
+
+const mapDispatchToProps = (dispatch, { history }) => ({
+    logout: dispatch(logout()).then(() => {
+        history.push('/login');
+    }),
+});
+
+export default withRouter(connect(null, mapDispatchToProps)(Logout));

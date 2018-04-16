@@ -1,24 +1,22 @@
 // @flow
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 import { handleApiError } from '../../config/api';
-import routesNames from '../../config/routesNames';
 import Form from './Form';
 import { login } from '../../actions/auth';
 
-const validateAndLogin = (values, dispatch, {location, router}) => {
-    return dispatch(login(values)).then(() => {
-        const redirectUrl = location.query.redirect;
-        router.push(redirectUrl && redirectUrl !== '/logout' ? redirectUrl : {name: routesNames.DASHBOARD});
-    }).catch((action: ActionFailedType) => {
-        handleApiError(action);
-    });
-};
-
-const mapDispatchToProps = () => {
+const mapDispatchToProps = (dispatch, { location, history }) => {
     return {
-        login: validateAndLogin,
+        login: (values) => {
+          return dispatch(login(values)).then(() => {
+              const redirectUrl = location.query.redirect;
+              history.push(redirectUrl && redirectUrl !== '/logout' ? redirectUrl : '/dashboard');
+          }).catch((action) => {
+              handleApiError(action);
+          });
+        },
     };
 };
 
-export default connect(() => { return {}; }, mapDispatchToProps)(Form);
+export default withRouter(connect(null, mapDispatchToProps)(Form));

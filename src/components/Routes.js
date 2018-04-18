@@ -3,15 +3,13 @@ import * as React from 'react';
 import { withRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
-import UserIsAuthenticated from '../config/authWrapper';
+import SecureRoute from './SecureRoute';
 import routesNames from '../config/routesNames';
-import { Layout, PageLayout } from '../components/layout';
-import Dashboard from '../components/dashboard';
-import Login from '../components/login';
-import Logout from '../components/logout';
+import { Layout, PageLayout } from '../components/Layout';
+import Dashboard from '../components/Dashboard';
+import Login from '../components/Login';
+import Logout from '../components/Logout';
 import NotFound from '../components/NotFound';
-
-const Authenticated = UserIsAuthenticated((props) => props.children);
 
 const simpleLayoutPages = [
     routesNames.LOGIN,
@@ -51,11 +49,11 @@ const Routes = ({location}) => {
                 <CSSTransition key={currentKey} timeout={timeout} classNames={animationName} exit={false}>
                     <div>
                         <Switch location={location}>
-                            <Route
+                            <SecureRoute
                               path={routesNames.DASHBOARD}
                               render={(props) => <Dashboard {...props} />}
                             />
-                            <Redirect to={routesNames.DASHBOARD} />
+                            <Redirect to={routesNames.NOT_FOUND} />
                         </Switch>
                     </div>
                 </CSSTransition>

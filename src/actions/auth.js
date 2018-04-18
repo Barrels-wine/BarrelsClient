@@ -16,5 +16,5 @@ export const login = (formValues) => ({
 });
 
 export const logout = () => ({
-  types: LOGOUT,
+  type: LOGOUT,
 });

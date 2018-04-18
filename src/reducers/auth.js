@@ -9,7 +9,7 @@ import {
     LOGOUT,
 } from '../actions/auth';
 
-const INITIAL_STATE: StateType = {
+const INITIAL_STATE = {
   user: null,
   status: null,
   error: null,

@@ -4,11 +4,13 @@ import { reducer as formReducer } from 'redux-form';
 import { routerReducer } from 'react-router-redux';
 import auth from './auth';
 import cellar from './cellar';
+import ui from './ui';
 import messages from './messages';
 
 const reducers = combineReducers({
     auth,
     cellar,
+    ui,
     messages,
     routing: routerReducer,
     form: formReducer,

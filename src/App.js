@@ -7,7 +7,7 @@ import en from 'react-intl/locale-data/en';
 import fr from 'react-intl/locale-data/fr';
 
 import Routes from './components/Routes';
-import translations from './translations';
+import getTranslations from './translations';
 import Loading from './components/Loading';
 
 class App extends React.Component {
@@ -15,7 +15,25 @@ class App extends React.Component {
       super(props);
       this.state = {
           location: undefined,
+          locale: 'fr',
+          translations: null,
       };
+  }
+
+  componentDidMount() {
+    addLocaleData([...en, ...fr]);
+    let locale = navigator.language.substring(0, 2);
+
+    getTranslations().then((translations) => {
+        if (!translations[locale]) {
+            locale = 'fr';
+        }
+
+        this.setState({
+          locale,
+          translations,
+        })
+    });
   }
 
   componentDidUpdate(prevState) {
@@ -25,14 +43,12 @@ class App extends React.Component {
   }
 
   render() {
-    addLocaleData([...en, ...fr]);
-    let locale = navigator.language.substring(0, 2);
-
-    if (!translations[locale]) {
-        locale = 'fr';
-    }
-
     const { store, persistor, history } = this.props;
+    const { locale, translations } = this.state;
+
+    if (!translations) {
+      return null;
+    }
 
     return (
         <Provider store={store}>

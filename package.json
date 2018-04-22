@@ -26,7 +26,8 @@
     "redux-axios-middleware": "^4.0.0",
     "redux-form": "^7.3.0",
     "redux-persist": "^5.9.1",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "yamljs": "^0.3.0"
   },
   "scripts": {
     "build-css": "node-sass-chokidar ./src/index.scss ./src/index.css",

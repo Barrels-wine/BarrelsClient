@@ -81,6 +81,7 @@ body,
     color: $nav-top-item-mobile;
   }
   .navbar-nav > li > a,
+  .navbar-nav > li > button,
   .navbar-nav > .open > a {
     color: $nav-top-item-mobile;
     &:hover, &:focus {
@@ -131,6 +132,7 @@ body,
         color: $nav-top-item-desktop;
     }
     .navbar-nav > li > a,
+    .navbar-nav > li > button,
     .navbar-nav > .open > a {
       color: $nav-top-item-desktop;
       &:hover, &:focus {

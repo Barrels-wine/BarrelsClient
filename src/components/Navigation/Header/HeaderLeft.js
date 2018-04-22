@@ -1,20 +1,17 @@
 // @flow
 import * as React from 'react';
-import { NavDropdown, MenuItem, ListGroup, ListGroupItem } from 'react-bootstrap';
 import { connect } from 'react-redux';
 
 import { toggleSidebar } from '../../../actions/ui';
+import NavItem from './NavItem';
 
 const HeaderLeft = ({ showSidebar, toggleSidebar}) => (
     <ul className="nav navbar-nav">
-        <li>
-            <button
-                onClick={toggleSidebar}
-                className="hidden-xs"
-            >
-                <em className="fa fa-navicon" />
-            </button>
-        </li>
+        <NavItem
+            onClick={toggleSidebar}
+            iconClass="fa fa-bars"
+            className="sidebar-toggle"
+        />
     </ul>
 );
 

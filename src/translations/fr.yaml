@@ -1,4 +1,12 @@
 common:
-  loading: "Chargement…"
+    loading: "Chargement…"
 layout:
-  title: "My Cellar"
+    title: "My Cellar"
+notifications:
+    more: 'Plus de notifications'
+    tasting:
+        subtitle: "Bouteilles prêtes à être goutées"
+        title: "Bouteilles prêtes à être goutées"
+search:
+    placeholder: 'Saisissez votre recherche puis pressez Entrer'
+    submit: 'Rechercher'

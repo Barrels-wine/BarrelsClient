@@ -4,14 +4,16 @@ import { FormattedMessage } from 'react-intl';
 
 const Logo = () => (
     <div className="navbar-header">
-        <a href="#" className="navbar-brand">
+        <a href="/dashboard" className="navbar-brand">
             <div className="brand-logo">
-                <i className="fa fa-wine-glass mr-2" />
-                {' '}
-                <FormattedMessage id="layout.title" />
+                <span>
+                    <i className="fa fa-wine-glass mr-sm" />
+                    {' '}
+                    <FormattedMessage id="layout.title" />
+                </span>
             </div>
             <div className="brand-logo-collapsed">
-                <em className="fa fa-wine-glass" />
+                <i className="fa fa-wine-glass" />
             </div>
         </a>
     </div>

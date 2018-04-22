@@ -71,33 +71,21 @@ $nav-top-item-desktop-active:   $nav-top-item-mobile-active;
     // overlaps nav-wrapper
     z-index: 11;
 
-    // Reset default to allow handle via different logo size
-    .navbar-brand {
-      padding: 0;
-    }
-
     // Different Logo size depends on the navbar state
-    .brand-logo,
-    .brand-logo-collapsed {
-      > img {
-        margin: 0 auto;
-      }
-    }
     .brand-logo {
       display: block;
-      padding: 10px 15px;
     }
     .brand-logo-collapsed {
       display: none;
-      padding: 6px 15px;
     }
   }
 
   .navbar-nav > li > .navbar-text {
-    color: $nav-top-item-mobile;
+    color: $nav-top-item-desktop;
   }
 
   .navbar-nav > li > a,
+  .navbar-nav > li > button,
   .navbar-nav > .open > a {
     color: $nav-top-item-mobile;
     &:hover, &:focus {
@@ -110,6 +98,12 @@ $nav-top-item-desktop-active:   $nav-top-item-mobile-active;
   .navbar-nav > .open   > a {
     &, &:hover, &:focus {
       background-color: transparent;
+    }
+  }
+
+  .navbar-nav > .navbar-text > .btn-link {
+    &:hover, &:focus {
+      text-decoration: none;
     }
   }
 
@@ -145,7 +139,7 @@ $nav-top-item-desktop-active:   $nav-top-item-mobile-active;
     right: 0;
     z-index: 3001;
     // Add color only for the icon
-    > em {
+    > i {
       color: white;
     }
   }
@@ -266,6 +260,7 @@ $nav-top-item-desktop-active:   $nav-top-item-mobile-active;
     }
 
     .navbar-nav > li > a,
+    .navbar-nav > li > button,
     .navbar-nav > .open > a {
       color: $nav-top-item-desktop;
       &:hover, &:focus {

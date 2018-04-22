@@ -279,14 +279,13 @@ html, body, #app {
 
 @media only screen and (max-width: $mq-up-to-tablet) {
 
-  .aside-collapsed .wrapper {
+  .aside-collapsed.wrapper {
     > .aside {
       margin-left: -$aside-wd-collapsed;
     }
   }
 
   .aside-collapsed.aside-toggled {
-    .wrapper {
       > section,
       > footer {
         margin-left: $aside-wd-collapsed;
@@ -295,13 +294,12 @@ html, body, #app {
       > .aside {
         margin-left: 0;
       }
-    }
   }
 
 
   .csstransforms3d  {
 
-    .aside-collapsed .wrapper {
+    .aside-collapsed.wrapper {
         @include backface-visibility(hidden);
         > section,
         > footer {
@@ -318,7 +316,6 @@ html, body, #app {
     }
 
     .aside-collapsed.aside-toggled {
-      .wrapper {
         > section,
         > footer {
           @include translate3d($aside-wd-collapsed,0,0);
@@ -326,7 +323,6 @@ html, body, #app {
         > .aside {
           @include translate3d(0,0,0);
         }
-      }
     }
 
   }
@@ -339,7 +335,6 @@ html, body, #app {
 // Aside status toggled via JS
 .aside-collapsed {
   overflow-y: auto;
-  .wrapper {
     > .aside {
       &, > .aside-inner {
         width: $aside-wd-collapsed;
@@ -347,7 +342,6 @@ html, body, #app {
       > .nav-floating {
         margin-left: $aside-wd-collapsed;
       }
-    }
   }
 }
 
@@ -355,13 +349,11 @@ html, body, #app {
 @media only screen and (min-width: $mq-tablet) {
   // Aside status toggled via JS
   .aside-collapsed {
-    .wrapper {
       > section,
       > footer {
         margin-left: $aside-wd-collapsed;
       }
     }
-  }
 }
 
 // ------------------------------
@@ -370,14 +362,13 @@ html, body, #app {
 
 @media only screen and (max-width: $mq-up-to-tablet) {
 
-  .aside-collapsed-text .wrapper {
+  .aside-collapsed-text.wrapper {
     > .aside {
       margin-left: -$aside-wd-collapsed-text;
     }
   }
 
   .aside-collapsed-text.aside-toggled {
-    .wrapper {
       > section,
       > footer {
         margin-left: $aside-wd-collapsed-text;
@@ -386,13 +377,12 @@ html, body, #app {
       > .aside {
         margin-left: 0;
       }
-    }
   }
 
 
   .csstransforms3d  {
 
-    .aside-collapsed-text .wrapper {
+    .aside-collapsed-text.wrapper {
         @include backface-visibility(hidden);
         > section,
         > footer {
@@ -409,7 +399,6 @@ html, body, #app {
     }
 
     .aside-collapsed-text.aside-toggled {
-      .wrapper {
         > section,
         > footer {
           @include translate3d($aside-wd-collapsed-text,0,0);
@@ -417,7 +406,6 @@ html, body, #app {
         > .aside {
           @include translate3d(0,0,0);
         }
-      }
     }
 
   }
@@ -430,7 +418,6 @@ html, body, #app {
 // Aside status toggled via JS
 .aside-collapsed-text {
   overflow-y: auto;
-  .wrapper {
     > .aside {
       &, > .aside-inner {
         width: $aside-wd-collapsed-text;
@@ -439,19 +426,16 @@ html, body, #app {
         margin-left: $aside-wd-collapsed-text;
       }
     }
-  }
 }
 
 // Margin only exists above tablet
 @media only screen and (min-width: $mq-tablet) {
   // Aside status toggled via JS
   .aside-collapsed-text {
-    .wrapper {
       > section,
       > footer {
         margin-left: $aside-wd-collapsed-text;
       }
-    }
   }
 }
 

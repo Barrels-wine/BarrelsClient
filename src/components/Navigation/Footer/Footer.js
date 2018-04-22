@@ -2,7 +2,9 @@
 import * as React from 'react';
 
 const Footer = () => (
-    <p></p>
+    <footer>
+        <span>&copy; 2018 - My Cellar</span>
+    </footer>
 );
 
 export default Footer;

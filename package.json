@@ -27,6 +27,7 @@
     "redux-form": "^7.3.0",
     "redux-persist": "^5.9.1",
     "redux-thunk": "^2.2.0",
+    "simple-line-icons": "^2.4.1",
     "yamljs": "^0.3.0"
   },
   "scripts": {

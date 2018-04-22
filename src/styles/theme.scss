@@ -101,6 +101,11 @@ body,
     color: $nav-top-item-desktop;
   }
 
+  // Header logo
+  .navbar-brand {
+    color: $nav-top-item-desktop;
+  }
+
   .nav-wrapper {
     background-color: $nav-top-bg;
     @include gradient-horizontal($nav-top-bg-start, $nav-top-bg-end);

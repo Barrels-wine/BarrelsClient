@@ -1,5 +1,5 @@
 //@flow
-import { LOCATION_CHANGE } from 'react-router-redux';
+import { LOCATION_CHANGE } from 'connected-react-router';
 import { clearMessages } from '../actions/messages';
 
 export default () => (next) => (action) => {

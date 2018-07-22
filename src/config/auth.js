@@ -1,6 +1,5 @@
 // @flow
 const isAuthenticated = (auth) => {
-    return true;
     if (!auth.token) {
         return false;
     }

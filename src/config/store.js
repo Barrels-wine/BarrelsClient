@@ -2,6 +2,7 @@
 import { compose, createStore } from 'redux';
 import { persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+import { connectRouter } from 'connected-react-router';
 
 import { DEV } from './parameters';
 import rootReducer from './../reducers';
@@ -17,7 +18,7 @@ const PERSIST_CONFIG = {
 export default function configureStore(history) {
     const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
     const store = createStore(
-        persistReducer(PERSIST_CONFIG, rootReducer),
+        persistReducer(PERSIST_CONFIG, connectRouter(history)(rootReducer)),
         composeEnhancers(getRootMiddleware(history)),
     );
     const persistor = persistStore(store);

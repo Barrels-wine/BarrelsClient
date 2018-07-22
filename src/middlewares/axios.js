@@ -2,7 +2,7 @@
 import axios from 'axios';
 import axiosMiddleware from 'redux-axios-middleware';
 import { normalize } from 'normalizr';
-import { push } from 'react-router-redux';
+import { push } from 'connected-react-router';
 
 import routesNames from '../config/routesNames';
 import { DANGER, message } from '../actions/messages';
@@ -43,7 +43,7 @@ const options = {
             };
         }
 
-        const isLoggingIn = getState().routing.locationBeforeTransitions.pathname === '/login';
+        const isLoggingIn = getState().routing.location.pathname === routesNames.LOGIN;
         if (!isLoggingIn && error.response && error.response.status === 401) {
             dispatch(message(DANGER, 'common.errors.must_be_logged_in'));
             push(routesNames.LOGIN);

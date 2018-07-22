@@ -2,11 +2,15 @@ common:
     loading: "Chargement…"
 layout:
     title: "My Cellar"
+login:
+    password: 'Mot de passe'
+    submit: 'Connexion'
+    username: 'Nom d''utilisateur'
 notifications:
     more: 'Plus de notifications'
     tasting:
-        subtitle: "Bouteilles prêtes à être goutées"
-        title: "Bouteilles prêtes à être goutées"
+        subtitle: 'Bouteilles prêtes à être goutées'
+        title: 'Bouteilles prêtes à être goutées'
 search:
     placeholder: 'Saisissez votre recherche puis pressez Entrer'
     submit: 'Rechercher'

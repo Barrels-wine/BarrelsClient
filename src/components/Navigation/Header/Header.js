@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 
-import Logo from './Logo';
+import HeaderLogo from './HeaderLogo';
 import HeaderLeft from './HeaderLeft';
 import HeaderRight from './HeaderRight';
 import Search from './Search';
@@ -9,11 +9,9 @@ import Search from './Search';
 const Header  = () => (
     <header className="topnavbar-wrapper">
         <nav className="navbar topnavbar">
-            <Logo />
-            <div className="nav-wrapper">
-                <HeaderLeft />
-                <HeaderRight />
-            </div>
+            <HeaderLogo />
+            <HeaderLeft />
+            <HeaderRight />
             <Search />
         </nav>
     </header>

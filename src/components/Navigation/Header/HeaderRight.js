@@ -9,7 +9,7 @@ import NavItem from './NavItem';
 
 
 const HeaderRight = ({toggleOffSidebar, toggleSearch}) => (
-    <ul className="nav navbar-nav navbar-right">
+    <ul className="navbar-nav flex-row">
         <NavItem
             onClick={toggleSearch}
             iconClass="icon-magnifier"

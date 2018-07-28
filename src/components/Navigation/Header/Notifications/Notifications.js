@@ -1,29 +1,41 @@
 // @flow
 import * as React from 'react';
-import { NavDropdown } from 'reactstrap';
+import {
+    UncontrolledDropdown,
+    DropdownToggle,
+    DropdownMenu,
+    DropdownItem,
+    ListGroup,
+} from 'reactstrap';
 
-import Title from './Title';
 import Item from './Item';
 import More from './More';
 
 const Notifications  = () => (
-    <NavDropdown
-        noCaret
-        eventKey={3}
-        title={<Title/>}
+    <UncontrolledDropdown
+        nav
+        inNavbar
         className="dropdown-list"
-        id="basic-nav-dropdown"
     >
-        <ul className="list-group">
-            <Item
-                icon="wine-glass"
-                color="danger"
-                title="notifications.tasting.title"
-                subtitle="notifications.tasting.subtitle"
-            />
-            <More />
-        </ul>
-    </NavDropdown>
+        <DropdownToggle nav className="dropdown-toggle-nocaret">
+            <em className="icon-bell"></em>
+            <span className="badge badge-danger">11</span>
+        </DropdownToggle>
+
+        <DropdownMenu right className="dropdown-menu-right animated flipInX">
+            <DropdownItem>
+                <ListGroup>
+                    <Item
+                        icon="envelope"
+                        color="danger"
+                        title="notifications.tasting.title"
+                        subtitle="notifications.tasting.subtitle"
+                    />
+                    <More />
+                </ListGroup>
+            </DropdownItem>
+        </DropdownMenu>
+    </UncontrolledDropdown>
 );
 
 export default Notifications;

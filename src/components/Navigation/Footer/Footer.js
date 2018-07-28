@@ -1,10 +1,14 @@
 // @flow
 import * as React from 'react';
 
-const Footer = () => (
-    <footer>
-        <span>&copy; 2018 - My Cellar</span>
-    </footer>
-);
+const Footer = () => {
+    const year = new Date().getFullYear();
+    
+    return (
+        <footer className="footer-container">
+            <span>&copy; {year} - My Cellar</span>
+        </footer>
+    );
+};
 
 export default Footer;

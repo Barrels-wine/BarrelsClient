@@ -6,25 +6,28 @@ import classNames from 'classnames';
 import Messages from '../Messages';
 import { Header, Sidebar, OffSidebar, Footer } from '../Navigation';
 
-const Layout = ({ children, showSidebar, showOffSidebar }) => (
+const Layout = ({ children, showSidebar, collapseSidebar, showOffSidebar }) => (
     <div className={classNames({
-        'wrapper': true,
-        'aside-collapsed': showSidebar,
+        'aside-collapsed': collapseSidebar,
+        'aside-toggled': showSidebar,
         'offsidebar-open': showOffSidebar,
     })} >
-        {/*<Messages />*/}
-        <Header />
-        <Sidebar />
-        <OffSidebar />
-        <section>
-            {children}
-        </section>
-        <Footer />
+        <div className="wrapper">
+            {/*<Messages />*/}
+            <Header />
+            <Sidebar />
+            <OffSidebar />
+            <section className="section-container">
+                {children}
+            </section>
+            <Footer />
+        </div>
     </div>
 );
 
 const mapStateToProps = (state) => ({
     showSidebar: state.ui.showSidebar,
+    collapseSidebar: state.ui.collapseSidebar,
     showOffSidebar: state.ui.showOffSidebar,
 });
 

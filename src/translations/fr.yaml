@@ -1,8 +1,6 @@
 common:
     loading: "Chargement…"
     logo: 'Logo My Cellar'
-layout:
-    title: "My Cellar"
 login:
     forgotten: 'Mot de passe oublié ?'
     password: 'Mot de passe'

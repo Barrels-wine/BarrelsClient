@@ -41,7 +41,7 @@ class Search extends React.Component {
                     'open': this.props.showSearch,
                 })}
             >
-                <div className="form-group has-feedback">
+                <div className="form-group">
                     <input
                         ref={input => this.input = input}
                         onBlur={this.props.toggleSearch}
@@ -51,12 +51,12 @@ class Search extends React.Component {
                     />
                     <div
                         onClick={this.close}
-                        className="fa fa-times form-control-feedback"
+                        className="fa fa-times navbar-form-close"
                     />
                 </div>
                 <button
                     type="submit"
-                    className="hidden btn btn-default"
+                    className="d-none"
                 >
                     <FormattedMessage id="search.submit"/>
                 </button>

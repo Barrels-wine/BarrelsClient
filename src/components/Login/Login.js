@@ -1,20 +1,22 @@
 // @flow
 import * as React from 'react';
-import Form from './Form';
-import avatar from '../../img/user.jpg';
+import { FormattedMessage } from 'react-intl';
 
-const Login = () => (
+import Form from './Form';
+import Logo from '../Logo';
+
+const Login = (props) => (
     <div className="abs-center wd-xl">
-        <div className="p">
-            <img src={avatar}
-                 alt="Avatar"
-                 width="60"
-                 height="60"
-                 className="img-thumbnail img-circle center-block"
-            />
+        <div className="d-flex justify-content-center">
+            <div className="p-2">
+                <Logo thumbnail round color="primary" bgColor="white" borderColor="primary" />
+            </div>
         </div>
-        <div className="panel widget b0">
-            <div className="panel-body">
+        <div className="card b0">
+            <div className="card-body">
+                <h1 className="text-center text-primary py-2">
+                    <FormattedMessage id="login.title" />
+                </h1>
                 <Form />
             </div>
         </div>

@@ -1,7 +1,9 @@
+// Bootstrap
+@import "bootstrap/scss/utilities";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins";
 
-@import 'app/variables';
-@import 'bootstrap/bootstrap/mixins/gradients';
-@import 'app/media-queries';
+@import 'app/common/variables';
 
 
 //
@@ -14,9 +16,9 @@ $content-bg:                    #f5f7fa;
 $aside-bg:                      #fff;
 // NAVBAR TOP
 
-$nav-top-bg:                    $brand-danger;
+$nav-top-bg:                    $danger;
 $nav-top-bg-start:              $nav-top-bg;
-$nav-top-bg-end:                $brand-danger-light;
+$nav-top-bg-end:                $danger-light;
 $nav-header-bg:                 transparent;
 
 $nav-top-item-mobile:           $nav-top-bg;
@@ -46,19 +48,17 @@ $sidebar-label-color:             $sidebar-item-color;
 
 $offsidebar-bg:           #fff;
 $offsidebar-border-color: greyscale(darken($offsidebar-bg, 20%));
-$offsidebar-color:        $text-color;
-
+$offsidebar-color:        $body-color;
 
 /* ========================================================================
    Component: layout
  ========================================================================== */
-
-body,
-.wrapper > section {
-  background-color: $content-bg;
+body, .wrapper .section-container {
+    background-color: $content-bg;
 }
-.wrapper > .aside {
-  background-color: $aside-bg;
+
+.wrapper .aside-container {
+    background-color: $aside-bg;
 }
 
 /* ========================================================================
@@ -69,163 +69,172 @@ body,
 // ------------------------------
 
 .topnavbar {
-  background-color: #fff;
-  .navbar-header {
     background-color: $nav-header-bg;
-    @include gradient-horizontal($nav-top-bg-start, $nav-top-bg-end);
-    @media only screen and (min-width: $mq-tablet) {
-      background-image: none;
+    @include gradient-x($nav-top-bg-start, $nav-top-bg-end);
+
+    .navbar-header {
+        @include media-breakpoint-up(md) {
+            background-image: none;
+        }
+
     }
-  }
-  .navbar-nav > li > .navbar-text {
-    color: $nav-top-item-mobile;
-  }
-  .navbar-nav > li > a,
-  .navbar-nav > li > button,
-  .navbar-nav > .open > a {
-    color: $nav-top-item-mobile;
-    &:hover, &:focus {
-      color: $nav-top-item-mobile-active;
+
+    .navbar-nav > li > .navbar-text {
+        color: $nav-top-item-mobile;
     }
-  }
 
-  // Navbar link active style
-  .navbar-nav > .active > a,
-  .navbar-nav > .open   > a {
-    &, &:hover, &:focus {
-      background-color: transparent;
+    .navbar-nav > li > a, .navbar-nav > .open > a {
+        color: $nav-top-item-mobile;
+
+        &:hover, &:focus {
+            color: $nav-top-item-mobile-active;
+        }
+
     }
-  }
 
-  // the button to toggle search
-  .navbar-nav > li > [data-toggle='navbar-search'] {
-    color: $nav-top-item-desktop;
-  }
+    // Navbar link active style
+    .navbar-nav > .active > a, .navbar-nav > .open   > a {
+        &, &:hover, &:focus {
+            background-color: transparent;
+        }
 
-  // Header logo
-  .navbar-brand {
-    color: $nav-top-item-desktop;
-  }
+    }
 
-  .nav-wrapper {
-    background-color: $nav-top-bg;
-    @include gradient-horizontal($nav-top-bg-start, $nav-top-bg-end);
-  }
+    // the button to toggle search
+    .navbar-nav > li > [data-toggle='navbar-search'] {
+        color: $nav-top-item-desktop;
+    }
+
+    .nav-wrapper {
+        background-color: $nav-top-bg;
+        @include gradient-x($nav-top-bg-start, $nav-top-bg-end);
+    }
+
 }
 
 // Navbar Desktop styles
 // ------------------------------
 
-@media only screen and (min-width: $mq-tablet) {
+@include media-breakpoint-up(md) {
+    // Navbar top styles
+    .topnavbar {
+        background-color: $nav-top-bg;
+        @include gradient-x($nav-top-bg-start, $nav-top-bg-end);
 
-  // Navbar top styles
-  .topnavbar {
-    background-color: $nav-top-bg;
-    @include gradient-horizontal($nav-top-bg-start, $nav-top-bg-end);
+        .navbar-nav > .open > a {
+            &, &:hover, &:focus {
+                box-shadow: 0 -3px 0 rgba(255, 255, 255, .5) inset;
+            }
 
-    .navbar-nav > .open > a {
-      &, &:hover, &:focus {
-        box-shadow: 0 -3px 0 rgba(255,255,255,.5) inset;
-      }
+        }
+
+        .navbar-nav > li > .navbar-text {
+            color: $nav-top-item-desktop;
+        }
+
+        .navbar-nav > li > a, .navbar-nav > .open > a {
+            color: $nav-top-item-desktop;
+
+            &:hover, &:focus {
+                color: $nav-top-item-mobile-active;
+            }
+
+        }
+
     }
-    .navbar-nav > li > .navbar-text {
-        color: $nav-top-item-desktop;
-    }
-    .navbar-nav > li > a,
-    .navbar-nav > li > button,
-    .navbar-nav > .open > a {
-      color: $nav-top-item-desktop;
-      &:hover, &:focus {
-        color: $nav-top-item-mobile-active;
-      }
-    }
 
-  } // .topnavbar
-
+    // .topnavbar
 }
 
 /* ========================================================================
    Component: sidebar
  ========================================================================== */
-
 .sidebar {
-  background-color: $sidebar-bg;
+    background-color: $sidebar-bg;
 
-  .nav-heading {
-    color: $sidebar-heading-color;
-  }
-
-  // Items
-  .nav {
-    > li {
-      > a,
-      > .nav-item {
-        color: $sidebar-item-color;
-        &:focus, &:hover {
-          color: $sidebar-item-color-active;
-        }
-        // Item icon
-        > em {
-          color: $sidebar-icon-color;
-        }
-      }
-
-      // Active item state
-      &.active,
-      &.open {
-        &,
-        > a,
-        > .nav-item,
-        .nav {
-          background-color: $sidebar-item-bg-active;
-          color: $sidebar-item-color-active;
-        }
-        > .nav-item > em,
-        > a > em {
-          color: $sidebar-icon-color-active;
-        }
-      }
-      &.active {
-        border-left-color: $sidebar-item-color-active;
-      }
+    .nav-heading {
+        color: $sidebar-heading-color;
     }
-  }
+}
+
+// Items
+.sidebar-nav {
+    > li {
+        > a, > .nav-item {
+            color: $sidebar-item-color;
+
+            &:focus, &:hover {
+                color: $sidebar-item-color-active;
+            }
+
+            // Item icon
+            > em {
+                color: $sidebar-icon-color;
+            }
+
+        }
+
+        // Active item state
+        &.active, &.open {
+            &, > a, > .nav-item, .sidebar-nav {
+                background-color: $sidebar-item-bg-active;
+                color: $sidebar-item-color-active;
+            }
+
+            > .nav-item > em, > a > em {
+                color: $sidebar-icon-color-active;
+            }
+
+        }
+
+        &.active {
+            border-left-color: $sidebar-item-color-active;
+        }
+
+    }
+
 }
 
 .sidebar-subnav {
-  background-color: $sidebar-bg;
-  > .sidebar-subnav-header {
-    color: $sidebar-item-color;
-  }
-  > li  {
-    > a,
-    > .nav-item {
-      color: $sidebar-item-color;
-      &:focus, &:hover {
-        color: $sidebar-item-color-active;
-      }
+    background-color: $sidebar-bg;
+
+    > .sidebar-subnav-header {
+        color: $sidebar-item-color;
     }
 
-    &.active {
-      > a,
-      > .nav-item {
-        color: $sidebar-icon-color-active;
-        &:after {
-          border-color: $sidebar-bullet-color-active;
-          background-color: $sidebar-bullet-color-active;
+    > li {
+        > a, > .nav-item {
+            color: $sidebar-item-color;
+
+            &:focus, &:hover {
+                color: $sidebar-item-color-active;
+            }
+
         }
-      }
-    }
-  } // li
-}
 
+        &.active {
+            > a, > .nav-item {
+                color: $sidebar-icon-color-active;
+
+                &:after {
+                    border-color: $sidebar-bullet-color-active;
+                    background-color: $sidebar-bullet-color-active;
+                }
+
+            }
+
+        }
+
+    }
+
+    // li
+}
 
 /* ========================================================================
    Component: offsidebar
  ========================================================================== */
-
 .offsidebar {
-  border-left: 1px solid $offsidebar-border-color;
-  background-color: $offsidebar-bg;
-  color: $offsidebar-color;
+    border-left: 1px solid $offsidebar-border-color;
+    background-color: $offsidebar-bg;
+    color: $offsidebar-color;
 }

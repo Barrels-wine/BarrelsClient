@@ -1,10 +1,10 @@
 //@flow
 import * as React from 'react';
-import { Button } from 'react-bootstrap';
+import { Button } from 'reactstrap';
 import { reduxForm } from 'redux-form';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 import routesNames from '../../config/routesNames';
 import { handleApiError } from '../../config/api';
@@ -15,15 +15,25 @@ const FORM_NAME = 'login';
 
 const Form = ({ handleSubmit, error, submitting, login }) => (
     <form>
-        <TextField name="username" label="login.username" />
-        <PasswordField name="password" label="login.password" />
+        <TextField
+            name="username"
+            label="login.username"
+        />
+        <PasswordField
+            name="password"
+            label="login.password"
+        />
 
-        <div className="clearfix">
-            <div className="pull-right">
+        <div className="d-flex">
+            <div className="mt-1">
+                <Link to={routesNames.LOGIN} className="text-muted">
+                    <small><FormattedMessage id="login.forgotten" /></small>
+                </Link>
+            </div>
+            <div className="ml-auto">
                 <Button
-                    to="dashboard"
-                    bsStyle="primary"
-                    bsSize="sm"
+                    color="primary"
+                    size="sm"
                     onClick={handleSubmit(login)}
                 >
                     <FormattedMessage id="login.submit" />

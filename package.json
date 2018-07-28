@@ -4,8 +4,10 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "bootstrap": "^4.1.3",
     "classnames": "^2.2.5",
     "connected-react-router": "^4.3.0",
+    "font-awesome": "^4.7.0",
     "history": "^4.7.2",
     "jwt-decode": "^2.2.0",
     "lodash": "^4.17.5",
@@ -13,7 +15,6 @@
     "normalizr": "^3.2.4",
     "npm-run-all": "^4.1.2",
     "react": "^16.3.1",
-    "react-bootstrap": "^0.32.1",
     "react-dom": "^16.3.1",
     "react-intl": "^2.4.0",
     "react-redux": "^5.0.7",
@@ -21,6 +22,7 @@
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.4",
     "react-transition-group": "^2.3.1",
+    "reactstrap": "^6.3.1",
     "redux": "^3.7.2",
     "redux-auth-wrapper": "^2.0.2",
     "redux-axios-middleware": "^4.0.0",
@@ -31,8 +33,8 @@
     "yamljs": "^0.3.0"
   },
   "scripts": {
-    "build-css": "node-sass-chokidar ./src/index.scss ./src/index.css",
-    "watch-css": "npm run build-css && node-sass-chokidar ./src/index.scss ./src/index.css --watch",
+    "build-css": "node-sass-chokidar --include-path ./node_modules/ ./src/index.scss ./src/index.css",
+    "watch-css": "node-sass-chokidar --include-path ./node_modules/ ./src/index.scss ./src/index.css --watch",
     "start-js": "react-scripts start",
     "start": "npm-run-all -p watch-css start-js",
     "build-js": "react-scripts build",

@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import { Alert } from 'react-bootstrap';
+import { Alert } from 'reactstrap';
 import { FormattedMessage } from 'react-intl';
 
 const Message = ({ message, bsClass, onDismiss }) => (

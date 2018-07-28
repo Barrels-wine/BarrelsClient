@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import { NavDropdown } from 'react-bootstrap';
+import { NavDropdown } from 'reactstrap';
 
 import Title from './Title';
 import Item from './Item';

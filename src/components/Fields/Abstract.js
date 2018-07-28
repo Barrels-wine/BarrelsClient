@@ -1,30 +1,34 @@
 import * as React from 'react';
-import { FormGroup, FormControl, ControlLabel, HelpBlock, InputGroup } from 'react-bootstrap';
+import { FormGroup, Input, Label, FormText, InputGroup, FormFeedback } from 'reactstrap';
 import { FormattedMessage } from 'react-intl';
+import classNames from 'classnames';
 
 export const TranslationLabel = (label) => {
     return (
-        <ControlLabel><FormattedMessage id={label} /></ControlLabel>
+        <Label><FormattedMessage id={label} /></Label>
     );
 };
 
 export const TranslationError = (error) => {
     return (
-        <span className="text-danger">
+        <FormFeedback invalid>
             <FormattedMessage id={`validation.${error}`} />
-        </span>
+        </FormFeedback>
     );
 };
 
-export const FormControlRender = (props) => {
+export const InputRender = (props) => {
     const placeholder = props.placeholder || (props.label ? props.label : null);
 
-    const formControl = (
-        <FormControl
-            className={props.className}
+    const className = classNames(props.className, {
+        'border-right-0': props.inputAddon,
+    });
+
+    const input = (
+        <Input
+            className={className}
             autoComplete={props.autoComplete}
             ref={props.refCallback()}
-            componentClass={props.componentClass}
             type={props.type}
             placeholder={placeholder ? props.intl.formatMessage({id: placeholder}) : ''}
             name={props.input.name}
@@ -32,40 +36,39 @@ export const FormControlRender = (props) => {
             checked={props.input.value}
             onChange={props.input.onChange}
             disabled={props.disabled}
+            invalid={props.meta.touched && props.meta.error}
             {...props.props}
         />
     );
 
     if (!props.inputAddon) {
-        return formControl;
+        return input;
     }
 
     return (
-        <InputGroup>
-            {formControl}
+        <InputGroup className="with-focus">
+            {input}
             {props.inputAddon}
         </InputGroup>
     );
 };
 
-FormControlRender.defaultProps = {
+InputRender.defaultProps = {
     props: {},
     label: null,
     placeholder: null,
     disabled: false,
-    componentClass: 'input',
     onChange: () => {},
     refCallback: () => {},
 };
 
 export const AbstractInput = (renderInput) => {
     const component = (props) => (
-        <FormGroup controlId={props.input.name} validationState={props.meta.touched && props.meta.error ? 'error' : null}>
+        <FormGroup>
             {props.label && TranslationLabel(props.label)}
             {renderInput(props)}
             {props.meta.touched && props.meta.error && TranslationError(props.meta.error)}
-            {props.help && <HelpBlock className="small">{props.help}</HelpBlock>}
-            <FormControl.Feedback />
+            {props.help && <FormText className="small">{props.help}</FormText>}
         </FormGroup>
     );
 

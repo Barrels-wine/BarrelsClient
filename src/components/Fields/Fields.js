@@ -1,7 +1,7 @@
 //@flow
 import * as React from 'react';
 import { Field } from 'redux-form';
-import { injectIntl, FormattedMessage } from 'react-intl';
+import { injectIntl } from 'react-intl';
 
 import Simple from './Simple';
 

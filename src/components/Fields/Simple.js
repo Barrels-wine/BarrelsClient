@@ -1,56 +1,69 @@
 // @flow
 import * as React from 'react';
-import { InputGroup, FormGroup, FormControl, Checkbox, HelpBlock } from 'react-bootstrap';
+import { InputGroupAddon, FormGroup, Label, FormText } from 'reactstrap';
 import { FormattedMessage } from 'react-intl';
 
-import { AbstractInput, FormControlRender, TranslationError } from './Abstract';
+import { AbstractInput, InputRender, TranslationError } from './Abstract';
 
-const SimpleInput = (type) => AbstractInput((props) => (<FormControlRender type={type} {...props} />));
+const SimpleInput = (type) => AbstractInput((props) => (<InputRender type={type} {...props} />));
 
 const TextInput = SimpleInput('text');
-const TextareaInput = AbstractInput((props) => (
-    <FormControlRender componentClass="textarea" {...props} />
-));
+const TextareaInput = SimpleInput('textarea');
 const EmailInput = SimpleInput('email');
 const NumberInput = SimpleInput('number');
 const TelephoneInput = SimpleInput('tel');
-const HiddenInput = (props) => (<FormControlRender type="hidden" {...props} />);
+const HiddenInput = SimpleInput('hidden');
 const PasswordInput = AbstractInput((props) => (
-    <InputGroup>
-        <FormControlRender className="br0" type="password" {...props} />
-        <InputGroup.Addon className="bg-transparent bl0">
-            <span className="input-group-text fa fa-lock text-muted" />
-        </InputGroup.Addon>
-    </InputGroup>
+    <InputRender
+        type="password"
+        inputAddon={
+            <InputGroupAddon addonType="append">
+                <span className="input-group-text fa fa-lock text-muted bg-transparent border-left-0" />
+            </InputGroupAddon>
+        }
+        {...props}
+    />
 ));
 const FileInput = SimpleInput('file');
 
 const PriceInput = AbstractInput((props) => (
-    <InputGroup>
-        <FormControlRender type="number" {...props} props={{step: '0.01', min: 0}} />
-        <InputGroup.Addon>€</InputGroup.Addon>
-    </InputGroup>
+    <InputRender
+        type="number"
+        props={{step: '0.01', min: 0}}
+        inputAddon={
+            <InputGroupAddon addonType="append">€</InputGroupAddon>
+        }
+        {...props}
+    />
 ));
 
 const PercentInput = AbstractInput((props) => (
-    <InputGroup>
-        <FormControlRender type="number" {...props} props={{step: '0.01', min: 0}} />
-        <InputGroup.Addon>%</InputGroup.Addon>
-    </InputGroup>
+    <InputRender
+        type="number"
+        props={{step: '0.01', min: 0}}
+        inputAddon={
+            <InputGroupAddon addonType="append">%</InputGroupAddon>
+        }
+        {...props}
+    />
 ));
 
 const CheckboxInput = (props) => {
     return (
-        <FormGroup controlId={props.input.name} validationState={props.meta.touched && props.meta.error ? 'error' : null}>
-            <Checkbox
-                checked={props.input.value}
-                onChange={(e) => props.input.onChange(e.target.checked)}
-            >
+        <FormGroup check>
+            <Label check>
+                <InputRender
+                    type="checkbox"
+                    invalid={props.meta.touched && props.meta.error}
+                    checked={props.input.value}
+                    onChange={(e) => props.input.onChange(e.target.checked)}
+                    {...props}
+                />
+                {' '}
                 <FormattedMessage id={props.label} />
-            </Checkbox>
-            {props.help && <HelpBlock className="small">{props.help}</HelpBlock>}
+            </Label>
             {props.meta.touched && props.meta.error && TranslationError(props.meta.error)}
-            <FormControl.Feedback />
+            {props.help && <FormText className="small">{props.help}</FormText>}
         </FormGroup>
     );
 };

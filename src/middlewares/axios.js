@@ -43,7 +43,7 @@ const options = {
             };
         }
 
-        const isLoggingIn = getState().routing.location.pathname === routesNames.LOGIN;
+        const isLoggingIn = getState().router.location.pathname === routesNames.LOGIN;
         if (!isLoggingIn && error.response && error.response.status === 401) {
             dispatch(message(DANGER, 'common.errors.must_be_logged_in'));
             push(routesNames.LOGIN);

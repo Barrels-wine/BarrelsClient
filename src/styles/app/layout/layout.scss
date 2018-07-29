@@ -13,22 +13,6 @@
 // If modified or removed make sure to check the variable
 // shared with other components
 // -------------------------------------------------------------
-$aside-wd:                                220px;
-$aside-wd-collapsed:                      70px;
-$aside-wd-collapsed-text:                 90px;
-$aside-bg:                                #fff;
-
-$content-bg:                              $body-bg;
-$content-heading-bg:                      #fafbfc;
-$content-heading-border:                  #cfdbe2;
-$content-padding:                         20px;
-
-$footer-hg:                               60px;
-
-$navbar-hg:                               $navbar-height;
-
-$boxed-max-width:                         1140px;
-$z-index-main-section:                    111;
 
 html {
     /* $replace rtl */
@@ -39,7 +23,7 @@ html {
     font-size: 16px; // force same font size acrros all device
 }
 
-html, body, #app {
+html, body, #app, .layout {
   // overflow-x: hidden;
   height: 100%;
 }

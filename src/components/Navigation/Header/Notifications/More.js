@@ -9,7 +9,7 @@ const More  = () => (
             <span className="text-sm">
                 <FormattedMessage id="notifications.more" />
             </span>
-            <span className="badge badge-danger ml-auto">14</span>
+            <span className="badge badge-success ml-auto">14</span>
         </span>
     </ListGroupItem>
 );

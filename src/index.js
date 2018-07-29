@@ -18,7 +18,7 @@ ReactDOM.render(
     store={store}
     persistor={persistor}
     history={history}
-  />, document.getElementById('root')
+  />, document.getElementById('app')
 );
 
 registerServiceWorker();

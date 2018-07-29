@@ -13,7 +13,7 @@ import { PasswordField, TextField } from '../Fields/Fields';
 
 const FORM_NAME = 'login';
 
-const Form = ({ handleSubmit, error, submitting, login }) => (
+const Form = ({ handleSubmit, pristine, submitting, login }) => (
     <form>
         <TextField
             name="username"
@@ -32,6 +32,7 @@ const Form = ({ handleSubmit, error, submitting, login }) => (
             </div>
             <div className="ml-auto">
                 <Button
+                    disabled={pristine || submitting}
                     color="primary"
                     size="sm"
                     onClick={handleSubmit(login)}

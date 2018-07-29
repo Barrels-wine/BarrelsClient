@@ -1,20 +1,9 @@
-/*!
- *
- * Angle - Bootstrap Admin App + React
- *
- * Version: 3.8.9.1
- * Author: @themicon_co
- * Website: http://themicon.co
- * License: https://wrapbootstrap.com/help/licenses
- *
- */
-
-// Bootstrap
-@import "bootstrap/scss/utilities";
-@import "bootstrap/scss/variables";
-@import "bootstrap/scss/mixins";
 // Variables
 @import "app/common/variables";
+
+// Bootstrap
+@import "bootstrap/scss/bootstrap";
+
 // Layout
 @import "app/layout/layout";
 @import "app/layout/layout-extra";
@@ -24,6 +13,7 @@
 @import "app/layout/offsidebar";
 @import "app/layout/user-block";
 @import "app/layout/settings";
+
 // Common
 @import "app/common/typo";
 @import "app/common/bootstrap-reset";
@@ -39,15 +29,18 @@
 @import "app/common/inputs";
 @import "app/common/utils";
 @import "app/common/print";
+
 // Elements
 @import "app/elements/nestable";
 @import "app/elements/notify";
 @import "app/elements/spinner";
 @import "app/elements/portlets";
+
 // Charts
 @import "app/charts/radial-bar";
 @import "app/charts/chart-flot";
 @import "app/charts/chart-easypie";
+
 // Form elements
 @import "app/forms/form-validation";
 @import "app/forms/form-tags";
@@ -56,18 +49,24 @@
 @import "app/forms/form-imgcrop";
 @import "app/forms/dropzone";
 @import "app/forms/plugins";
+
 // Tables
 @import "app/tables/datatable";
 @import "app/tables/table-extras";
 @import "app/tables/bootgrid";
+
 // Maps
 @import "app/maps/gmap";
 @import "app/maps/vector-map";
+
+@import "app/login";
+
 // Extras
 @import "app/extras/timeline";
 @import "app/extras/todo";
 @import "app/extras/calendar";
 @import "app/extras/mailbox";
 @import "app/extras/plans";
+
 // Documentation
 @import "app/documentation/docs";

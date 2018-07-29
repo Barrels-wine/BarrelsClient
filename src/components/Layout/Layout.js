@@ -4,23 +4,22 @@ import { connect } from 'react-redux';
 import classNames from 'classnames';
 
 import Messages from '../Messages';
-import { Header, Sidebar, OffSidebar, Footer } from '../Navigation';
+import { Header, Sidebar, Footer } from '../Navigation';
 
-const Layout = ({ children, showSidebar, collapseSidebar, showOffSidebar }) => (
+const Layout = ({ children, showSidebar, collapseSidebar }) => (
     <div className={classNames({
-        'aside-collapsed': collapseSidebar,
+        'layout': true,
+        'aside-collapsed-text': collapseSidebar,
         'aside-toggled': showSidebar,
-        'offsidebar-open': showOffSidebar,
     })} >
         <div className="wrapper">
             {/*<Messages />*/}
             <Header />
             <Sidebar />
-            <OffSidebar />
             <section className="section-container">
                 {children}
             </section>
-            <Footer />
+            <Footer className="footer-container" />
         </div>
     </div>
 );
@@ -28,7 +27,6 @@ const Layout = ({ children, showSidebar, collapseSidebar, showOffSidebar }) => (
 const mapStateToProps = (state) => ({
     showSidebar: state.ui.showSidebar,
     collapseSidebar: state.ui.collapseSidebar,
-    showOffSidebar: state.ui.showOffSidebar,
 });
 
 export default connect(mapStateToProps)(Layout);

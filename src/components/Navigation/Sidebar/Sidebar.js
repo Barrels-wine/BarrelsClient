@@ -2,7 +2,6 @@
 import * as React from 'react';
 import { withRouter } from 'react-router-dom';
 
-import UserBlock from './UserBlock';
 import menu from '../../../config/menu';
 import SidebarItemHeader from './SidebarItemHeader';
 import SidebarItem from './SidebarItem';
@@ -48,25 +47,14 @@ class Sidebar extends React.Component {
         return (
             <aside className='aside-container'>
                 <div className="aside-inner">
-                    <nav className="sidebar">
+                    <nav className="sidebar show-scrollbar">
                         <ul className="sidebar-nav">
-                            <UserBlock />
                             {menu.map((item) => {
-                                if (item.type === 'heading') {
+                                if (item.type === 'header') {
                                     return (
                                         <SidebarItemHeader
                                             item={item}
                                             key={item.id}
-                                        />
-                                    );
-                                }
-                                
-                                if (item.type === 'menu') {
-                                    return (
-                                        <SidebarItem
-                                            key={item.id}
-                                            active={this.isRouteActive(item.route)}
-                                            item={item}
                                         />
                                     );
                                 }
@@ -94,7 +82,13 @@ class Sidebar extends React.Component {
                                     );
                                 }
 
-                                return null;
+                                return (
+                                    <SidebarItem
+                                        key={item.id}
+                                        active={this.isRouteActive(item.route)}
+                                        item={item}
+                                    />
+                                );
                             })}
                         </ul>
                     </nav>

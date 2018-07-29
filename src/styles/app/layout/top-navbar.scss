@@ -13,23 +13,6 @@
     filter: none;
 }
 
-$nav-header-wd:                 $aside-wd;
-$nav-header-wd-toggled:         $aside-wd-collapsed;
-
-$nav-header-wd-toggled-text:    $aside-wd-collapsed-text;
-
-$nav-top-bg:                    $info;
-$nav-top-bg-start:              $nav-top-bg;
-$nav-top-bg-end:                $info-light;
-$nav-header-bg:                 transparent;
-
-$nav-top-item-mobile:           $nav-top-bg;
-$nav-top-item-mobile-active:    darken($nav-top-item-mobile, 20%);
-
-$nav-top-item-desktop:          #fff;
-$nav-top-item-desktop-active:   $nav-top-item-mobile-active;
-
-
 // Navbar top layout
 .topnavbar {
     -webkit-backface-visibility: hidden; /* fixes chrome jump */
@@ -39,8 +22,9 @@ $nav-top-item-desktop-active:   $nav-top-item-mobile-active;
     border: 0;
     padding: 0;
     min-height: $navbar-height;
-    background-color: $nav-top-bg;
-    @include gradient-x($nav-top-bg-start, $nav-top-bg-end); // // dont' allow stacked icons
+    max-height: $navbar-height;
+    background-color: $nav-header-bg;
+    @include gradient-x($nav-top-bg-start, $nav-top-bg-end);
 
     @include media-breakpoint-up(md) {
         .navbar-header {
@@ -78,8 +62,13 @@ $nav-top-item-desktop-active:   $nav-top-item-mobile-active;
         } // Different Logo size depends on the navbar state
         .brand-logo,
         .brand-logo-collapsed {
-            >img {
+            .logo {
                 margin: 0 auto;
+                height: $logo-height-sm;
+
+                @include media-breakpoint-up(md) {  
+                    height: $logo-height;
+                }
             }
         }
         .brand-logo {
@@ -118,12 +107,13 @@ $nav-top-item-desktop-active:   $nav-top-item-mobile-active;
         }
     }
     .navbar-nav>.nav-item>.navbar-text {
-        color: $nav-top-item-desktop;
+        color: $nav-top-item-mobile;
     }
 
     .navbar-nav>.nav-item>.nav-link {
         padding: 1.1rem .95rem;
         font-size: .85rem;
+        cursor: pointer;
     }
     .navbar-nav>.nav-item>.nav-link,
     .navbar-nav>.nav-item.show>.nav-link {
@@ -293,48 +283,37 @@ $nav-top-item-desktop-active:   $nav-top-item-mobile-active;
 }
 
 @include media-breakpoint-up(md) {
-    .aside-collapsed {
-        .topnavbar {
-            .navbar-header {
-                .brand-logo {
-                    display: none;
-                }
-                .brand-logo-collapsed {
-                    display: block;
-                }
+    // Header logo on screen more than md
+    .aside-collapsed, .aside-collapsed-text {
+        .topnavbar .navbar-header {
+            .brand-logo {
+                display: none;
             }
-
-            .navbar-header {
-                width: $nav-header-wd-toggled;
-            }
-
-            .navbar-form {
-                left: $nav-header-wd-toggled;
+            .brand-logo-collapsed {
+                display: block;
             }
         }
     }
-}
 
-// Header on aside collapsed with Text
-@include media-breakpoint-up(md) {
-    .aside-collapsed-text {
-        .topnavbar {
-            .navbar-header {
-                .brand-logo {
-                    display: none;
-                }
-                .brand-logo-collapsed {
-                    display: block;
-                }
-            }
+    // Header on aside collapsed
+    .aside-collapsed .topnavbar {
+        .navbar-header {
+            width: $nav-header-wd-toggled;
+        }
 
-            .navbar-header {
-                width: $nav-header-wd-toggled-text;
-            }
+        .navbar-form {
+            left: $nav-header-wd-toggled;
+        }
+    }
 
-            .navbar-form {
-                left: $nav-header-wd-toggled-text;
-            }
+    // Header on aside collapsed with Text
+    .aside-collapsed-text .topnavbar {
+        .navbar-header {
+            width: $nav-header-wd-toggled-text;
+        }
+
+        .navbar-form {
+            left: $nav-header-wd-toggled-text;
         }
     }
 }

@@ -7,6 +7,11 @@ login:
     submit: 'Connexion'
     title: 'My Cellar'
     username: 'Nom d''utilisateur'
+not_found:
+    dashboard: 'Accueil'
+    login: 'Se connecter'
+    subtitle: 'Cette page n''existe pas.'
+    title: 'Page non trouvée'
 notifications:
     more: 'Plus de notifications'
     tasting:
@@ -15,3 +20,10 @@ notifications:
 search:
     placeholder: 'Saisissez votre recherche puis pressez Entrer'
     submit: 'Rechercher'
+sidebar:
+    cellar:
+        bottles: Bouteilles
+        header: Ma cave
+        wines: Vins
+    header: Menu
+    settings: Préférences

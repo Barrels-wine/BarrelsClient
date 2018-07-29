@@ -6,12 +6,6 @@
 // A sidebar in offcanvas mode
 // Open status toggled via JS
 // -----------------------------------------
-
-$offsidebar-bg:           #fff;
-$offsidebar-border-color: grayscale(darken($offsidebar-bg, 20%));
-$offsidebar-color:        $body-color;
-$offsidebar-wd:           $aside-wd + 15px;      // match the width with the main aside component
-
 .offsidebar {
     position: absolute;
     top: 0;

@@ -1,10 +1,10 @@
-
 // Cutoms Gray colors for theme
 $gray-darker:           #232735;
 $gray-dark:             #3a3f51;
 $gray:                  #dde6e9;
 $gray-light:            #e4eaec;
 $gray-lighter:          #edf1f2;
+$white:                 #fff;
 
 // Custom brand colors for theme
 $inverse:               #131e26;
@@ -15,10 +15,10 @@ $green:                 #37bc9b;
 
 $primary:               #800020;
 $secondary:             #fff;
-$success:               #27c24c;
-$info:                  #23b7e5;
+$success:               lighten($primary, 10%);
+$info:                  lighten($primary, 10%);
 $warning:               #ff902b;
-$danger:                #f05050;
+$danger:                #000;
 $dark:                  #3a3f51;
 
 // Custom color variants
@@ -49,10 +49,12 @@ $yellow-dark:           darken($yellow, $amountOfLight);
 
 // used for sidebars and content spacing
 $navbar-height:                    55px;
+$logo-height:                      30px;
+$logo-height-sm:                   20px;
 
 // Button secondary redefinition style for theme
 $btn-secondary-color:              #333;
-$btn-secondary-bg:                 #fff;
+$btn-secondary-bg:                 $white;
 $btn-secondary-border:             #eaeaea;
 
 // Top Border color for custom default cards (.card-default)
@@ -150,6 +152,25 @@ $headings-line-height:        1.1;
 
 $text-muted:                  #909FA7;
 
+// Layout
+
+$aside-wd:                                220px;
+$aside-wd-collapsed:                      70px;
+$aside-wd-collapsed-text:                 90px;
+$aside-bg:                                $white;
+
+$content-bg:                              $body-bg;
+$content-heading-bg:                      #fafbfc;
+$content-heading-border:                  #cfdbe2;
+$content-padding:                         20px;
+
+$footer-hg:                               60px;
+
+$navbar-hg:                               $navbar-height;
+
+$boxed-max-width:                         1140px;
+$z-index-main-section:                    111;
+
 // Tables
 
 $table-accent-bg:             #fafbfc;
@@ -181,7 +202,50 @@ $dropdown-border-color:             #e1e1e1;
 
 // Navs
 
-$nav-tabs-link-active-bg:           #fff;
+$nav-tabs-link-active-bg:           $white;
+$nav-top-bg:                        $primary;
+$nav-top-bg-start:                  $nav-top-bg;
+$nav-top-bg-end:                    $primary-light;
+$nav-header-bg:                     transparent;
+
+$nav-top-item-mobile:           $nav-top-bg;
+$nav-top-item-mobile-active:    darken($nav-top-item-mobile, 20%);
+
+$nav-top-item-desktop:          #fff;
+$nav-top-item-desktop-active:   darken($nav-top-item-desktop, 20%);
+
+$nav-header-wd:                 $aside-wd;
+$nav-header-wd-toggled:         $aside-wd-collapsed;
+
+$nav-header-wd-toggled-text:    $aside-wd-collapsed-text;
+
+// Sidebar
+
+$sidebar-bg:                      $aside-bg;
+
+$sidebar-item-color:              #515253;
+$sidebar-item-color-active:       $nav-top-bg;
+$sidebar-item-bg-active:          darken($sidebar-bg, 1%);
+
+$sidebar-icon-color:              inherits;
+$sidebar-icon-color-active:       $nav-top-bg;
+
+$sidebar-bullet-color:            rgba(0,0,0,.25);
+$sidebar-bullet-color-active:     $sidebar-icon-color-active;
+
+$sidebar-heading-color:           #919DA8;
+$sidebar-label-color:             $sidebar-item-color;
+
+$submenu-header-hg:               40px;
+$sidebar-item-border-wd:          3px;
+$scrollbar-wd:                    17px;
+
+// Offssidebar
+
+$offsidebar-bg:           #fff;
+$offsidebar-border-color: grayscale(darken($offsidebar-bg, 20%));
+$offsidebar-color:        $body-color;
+$offsidebar-wd:           $aside-wd + 15px;
 
 // Jumbotron
 

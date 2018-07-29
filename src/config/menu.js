@@ -4,36 +4,36 @@ import routesNames from './routesNames';
 export default [
     {
         id: 'main-header',
-        label: 'sidebar.main',
+        label: 'sidebar.header',
         type: 'header',
     },
     {
-        id: 'dashboard',
-        label: 'sidebar.dashboard',
+        id: 'cellar',
+        label: 'sidebar.cellar.header',
         type: 'submenu',
         icon: 'icon-speedometer',
-        badge: { value: 3, color: 'success' },
+        badge: { value: 3, color: 'danger' },
         submenu: [
             {
-                id: 'dashboard-1',
+                id: 'wines',
                 type: 'menu',
-                label: 'sidebar.dashboard1',
+                label: 'sidebar.cellar.wines',
                 route: routesNames.DASHBOARD,
             },
             {
-                id: 'dashboard-2',
+                id: 'bottles',
                 type: 'menu',
-                label: 'sidebar.dashboard2',
+                label: 'sidebar.cellar.bottles',
                 route: routesNames.NOT_FOUND,
             },
         ]
     },
     {
-        id: 'bottles',
+        id: 'settings',
         type: 'menu',
-        label: 'sidebar.bottles',
+        label: 'sidebar.settings',
         icon: 'icon-grid',
         route: routesNames.NOT_FOUND,
-        badge: { value: 30, color: 'success' },
+        badge: { value: 30, color: 'danger' },
     },
 ];

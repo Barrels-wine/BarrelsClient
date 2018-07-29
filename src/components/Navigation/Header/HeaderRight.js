@@ -2,13 +2,14 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
-import { toggleOffSidebar, toggleSearch } from "../../../actions/ui";
+import { toggleSearch } from '../../../actions/ui';
+import { logout } from '../../../actions/auth';
 
 import Notifications from './Notifications';
 import NavItem from './NavItem';
 
 
-const HeaderRight = ({toggleOffSidebar, toggleSearch}) => (
+const HeaderRight = ({ logout, toggleSearch }) => (
     <ul className="navbar-nav flex-row">
         <NavItem
             onClick={toggleSearch}
@@ -16,14 +17,14 @@ const HeaderRight = ({toggleOffSidebar, toggleSearch}) => (
         />
         <Notifications />
         <NavItem
-            onClick={toggleOffSidebar}
-            iconClass="icon-notebook"
+            onClick={logout}
+            iconClass="icon-logout"
         />
     </ul>
 );
 
 const mapDispatchToProps = (dispatch) => ({
-    toggleOffSidebar: () => dispatch(toggleOffSidebar()),
+    logout: () => dispatch(logout()),
     toggleSearch: () => dispatch(toggleSearch()),
 });
 

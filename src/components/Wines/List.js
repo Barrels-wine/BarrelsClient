@@ -82,14 +82,14 @@ class List extends React.Component {
                 title="wines.list.title"
             >
                 {loading && <Loading />}
-                <Container fluid>
+                {Object.keys(wines).length && <Container fluid>
                     <ReactDataGrid
                         onGridSort={this.sort}
                         columns={this.state.headers}
                         rowGetter={(i) => wines[Object.keys(wines)[i]]}
                         rowsCount={Object.keys(wines).length}
                         minHeight={GRID_MIN_HEIGHT} />
-                </Container>
+                </Container>}
 
             </ContentWrapper>
         );

@@ -1,4 +1,4 @@
-This is the React client for MyCellar API.
+This is the React client for Barrels API.
 
 # Prerequisites
 

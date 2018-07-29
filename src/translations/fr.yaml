@@ -1,6 +1,6 @@
 common:
     loading: "Chargement…"
-    logo: 'Logo My Cellar'
+    logo: 'Logo Barrels'
 dashboard:
     title: 'Accueil'
     subtitle: 'Tableau de bord'
@@ -8,7 +8,7 @@ login:
     forgotten: 'Mot de passe oublié ?'
     password: 'Mot de passe'
     submit: 'Connexion'
-    title: 'My Cellar'
+    title: 'Barrels'
     username: 'Nom d''utilisateur'
 not_found:
     dashboard: 'Accueil'

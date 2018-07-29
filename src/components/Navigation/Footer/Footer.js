@@ -7,7 +7,7 @@ const Footer = (props) => (
             <span className="mr-2">&copy;</span>
             <span>{new Date().getFullYear()}</span>
             <span className="mx-2">-</span>
-            <span>My Cellar</span>
+            <span>Barrels</span>
         </div>
     </footer>
 );

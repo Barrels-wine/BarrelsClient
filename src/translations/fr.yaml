@@ -1,6 +1,9 @@
 common:
     loading: "Chargement…"
     logo: 'Logo My Cellar'
+dashboard:
+    title: 'Accueil'
+    subtitle: 'Tableau de bord'
 login:
     forgotten: 'Mot de passe oublié ?'
     password: 'Mot de passe'
@@ -22,8 +25,19 @@ search:
     submit: 'Rechercher'
 sidebar:
     cellar:
-        bottles: Bouteilles
         header: Ma cave
         wines: Vins
+    dashboard: 'Dashboard'
     header: Menu
-    settings: Préférences
+wines:
+    list:
+        headers:
+            batch: 'Cuvée'
+            classification_level: 'Classement'
+            country: 'Pays'
+            designation: 'Appelation'
+            name: 'Nom'
+            nb_bottles: 'Nombre'
+            region: 'Région'
+            vintage: 'Millésime'
+        title: 'Liste des vins'

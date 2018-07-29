@@ -1,9 +1,10 @@
 // @flow
 import * as React from 'react';
 import { FormattedMessage } from 'react-intl';
-import { Badge } from 'reactstrap';
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
+
+import SidebarBadge from './SidebarBadge';
 
 const SidebarItem = ({ item, active }) => {
     const classes = classNames({
@@ -13,13 +14,9 @@ const SidebarItem = ({ item, active }) => {
     return (
         <li className={classes}>
             <Link to={item.route}>
-                {item.badge && <Badge
-                    tag="div"
-                    className="pull-right"
-                    color={item.badge.color}
-                >
-                    {item.badge.value}
-                </Badge>}
+                {item.badge && <SidebarBadge
+                    {...item.badge}
+                />}
                 {item.icon && <em className={item.icon}></em>}
                 <FormattedMessage id={item.label} />
             </Link>

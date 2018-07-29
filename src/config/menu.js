@@ -8,32 +8,25 @@ export default [
         type: 'header',
     },
     {
+        id: 'dashboard',
+        type: 'menu',
+        label: 'sidebar.dashboard',
+        icon: 'icon-speedometer',
+        route: routesNames.DASHBOARD,
+    },
+    {
         id: 'cellar',
         label: 'sidebar.cellar.header',
         type: 'submenu',
         icon: 'icon-speedometer',
-        badge: { value: 3, color: 'danger' },
         submenu: [
             {
                 id: 'wines',
                 type: 'menu',
                 label: 'sidebar.cellar.wines',
-                route: routesNames.DASHBOARD,
-            },
-            {
-                id: 'bottles',
-                type: 'menu',
-                label: 'sidebar.cellar.bottles',
-                route: routesNames.NOT_FOUND,
+                route: routesNames.WINES,
+                badge: { path: 'cellar.count', color: 'danger' },
             },
         ]
-    },
-    {
-        id: 'settings',
-        type: 'menu',
-        label: 'sidebar.settings',
-        icon: 'icon-grid',
-        route: routesNames.NOT_FOUND,
-        badge: { value: 30, color: 'danger' },
     },
 ];

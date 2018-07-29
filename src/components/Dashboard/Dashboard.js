@@ -1,8 +1,14 @@
 // @flow
 import * as React from 'react';
 
+import { ContentWrapper } from '../Layout';
+
 const Dashboard = () => (
-    <p>Welcome</p>
+    <ContentWrapper
+        title="dashboard.title"
+        subtitle="dashboard.subtitle"
+    >
+    </ContentWrapper>
 );
 
 export default Dashboard;

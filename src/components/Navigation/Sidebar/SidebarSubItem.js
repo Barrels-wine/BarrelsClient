@@ -1,8 +1,10 @@
 // @flow
 import * as React from 'react';
 import { FormattedMessage } from 'react-intl';
-import { Badge, Collapse } from 'reactstrap';
+import { Collapse } from 'reactstrap';
 import classNames from 'classnames';
+
+import SidebarBadge from './SidebarBadge';
 
 const SidebarSubItem = ({ item, active, children, toggle, open }) => {
     const classes = classNames({
@@ -12,13 +14,9 @@ const SidebarSubItem = ({ item, active, children, toggle, open }) => {
     return (
         <li className={classes}>
             <div className="nav-item" onClick={toggle}>
-                {item.badge && <Badge
-                    tag="div"
-                    className="pull-right"
-                    color={item.badge.color}
-                >
-                    {item.badge.value}
-                </Badge>}
+                {item.badge && <SidebarBadge
+                    {...item.badge}
+                />}
                 {item.icon && <em className={item.icon}></em>}
                 <FormattedMessage id={item.label} />
             </div>

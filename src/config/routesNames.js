@@ -5,4 +5,5 @@ export default {
   LOGOUT: '/logout',
   NOT_FOUND: '/not-found',
   DASHBOARD: '/',
+  WINES: '/wines',
 };

@@ -3,7 +3,7 @@ import { schema } from 'normalizr';
 
 const wineSchema = new schema.Entity('wines');
 const listSchema = (schema) => ({
-    results: [schema]
+    results: [schema],
 });
 
 export default {

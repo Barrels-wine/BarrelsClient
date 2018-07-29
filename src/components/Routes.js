@@ -10,6 +10,7 @@ import Dashboard from '../components/Dashboard';
 import Login from '../components/Login';
 import Logout from '../components/Logout';
 import NotFound from '../components/NotFound';
+import WinesList from '../components/Wines';
 
 const simpleLayoutPages = [
     routesNames.LOGIN,
@@ -50,8 +51,13 @@ const Routes = ({location}) => {
                     <div>
                         <Switch location={location}>
                             <SecureRoute
-                              path={routesNames.DASHBOARD}
-                              render={(props) => <Dashboard {...props} />}
+                                exact
+                                path={routesNames.DASHBOARD}
+                                render={(props) => <Dashboard {...props} />}
+                            />
+                            <SecureRoute
+                                path={routesNames.WINES}
+                                render={(props) => <WinesList {...props} />}
                             />
                             <Redirect to={routesNames.NOT_FOUND} />
                         </Switch>

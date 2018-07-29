@@ -12,23 +12,27 @@ class Sidebar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            collapse: {},
+            expanded: this.findInitiallyExpandedItems(),
         };
     }
 
-    toggleItemCollapse = (id) => () => {
-        for (let c in this.state.collapse) {
-            if (this.state.collapse[c] === true && c !== id)
-                this.setState({
-                    collapse: {
-                        [c]: false
-                    }
-                });
-        }
-        this.setState({
-            collapse: {
-                [id]: !this.state.collapse[id]
+    findInitiallyExpandedItems = () => {
+        const expanded = {};
+        menu.forEach(item => {
+            if (this.isRouteActive(this.getSubRoutes(item))) {
+                expanded[item.id] = true;
             }
+        })
+
+        return expanded;
+    }
+
+    toggleItem = (id) => () => {
+        const expanded = {...this.state.expanded};
+        expanded[id] = !expanded[id];
+
+        this.setState({
+            expanded,
         });
     }
 
@@ -41,7 +45,13 @@ class Sidebar extends React.Component {
         return false;
     }
 
-    getSubRoutes = item => item.submenu.map(({route}) => route)
+    getSubRoutes = (item) => {
+        if (!item.submenu) {
+            return [];
+        }
+
+        return item.submenu.map(({route}) => route)
+    }
 
     render() {
         return (
@@ -64,8 +74,8 @@ class Sidebar extends React.Component {
                                         <SidebarSubItem
                                             key={item.id}
                                             item={item}
-                                            open={this.state.collapse[item.name]}
-                                            handler={ this.toggleItemCollapse(item.id) }
+                                            open={!!this.state.expanded[item.id]}
+                                            toggle={this.toggleItem(item.id)}
                                             active={this.isRouteActive(this.getSubRoutes(item))}
                                         >
                                             <SidebarSubHeader item={item} key={item.id}/>

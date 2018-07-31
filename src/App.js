@@ -5,10 +5,11 @@ import { ConnectedRouter } from 'connected-react-router'
 import { IntlProvider, addLocaleData } from 'react-intl';
 import en from 'react-intl/locale-data/en';
 import fr from 'react-intl/locale-data/fr';
+import countries from 'i18n-iso-countries';
 
 import Routes from './components/Routes';
 import getTranslations from './translations';
-import Loading from './components/Loading';
+import { Loading } from './components/Common';
 
 class App extends React.Component {
   constructor(props) {
@@ -28,6 +29,8 @@ class App extends React.Component {
         if (!translations[locale]) {
             locale = 'fr';
         }
+
+        countries.registerLocale(require(`i18n-iso-countries/langs/${locale}.json`));
 
         this.setState({
           locale,

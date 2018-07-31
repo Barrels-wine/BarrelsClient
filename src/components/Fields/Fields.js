@@ -4,28 +4,37 @@ import { Field } from 'redux-form';
 import { injectIntl } from 'react-intl';
 
 import Simple from './Simple';
+import Select from './Select';
+import Rating from './Rating';
+import Geography from './Geography';
 
-function ConnectedField(component) {
-    return injectIntl((props) => (
-        <Field
-            {...props}
-            props={{...props}}
-            component={component}
-        />
-    ));
-}
+const ConnectedField = (component) => injectIntl((props) => (
+    <Field
+        {...props}
+        props={{...props}}
+        component={component}
+    />
+));
 
-function ConnectedPriceField(component) {
-    return injectIntl((props) => (
-        <Field
-            {...props}
-            parse={(value) => (isNaN(Number(value)) ? '' : Math.round(value * 100))}
-            format={(value) => (isNaN(Number(value)) ? '' : parseFloat(value / 100))}
-            props={{...props}}
-            component={component}
-        />
-    ));
-}
+const ConnectedPriceField = (component) => injectIntl((props) => (
+    <Field
+        {...props}
+        parse={value => isNaN(Number(value)) ? '' : Math.round(value * 100)}
+        format={value => isNaN(Number(value)) ? '' : parseFloat(value / 100)}
+        props={{...props}}
+        component={component}
+    />
+));
+
+const ConnectedRatingField = (component) => injectIntl((props) => (
+    <Field
+        {...props}
+        parse={value => isNaN(Number(value)) ? 0 : value}
+        format={value => value === 0 ? null : value}
+        props={{...props}}
+        component={component}
+    />
+));
 
 export const TextField = ConnectedField(Simple.TextInput);
 export const TextareaField = ConnectedField(Simple.TextareaInput);
@@ -38,17 +47,7 @@ export const PriceField = ConnectedPriceField(Simple.PriceInput);
 export const PercentField = ConnectedField(Simple.PercentInput);
 export const TelephoneField = ConnectedField(Simple.TelephoneInput);
 export const HiddenField = ConnectedField(Simple.HiddenInput);
-
-export default {
-    TextField,
-    TextareaField,
-    EmailField,
-    PasswordField,
-    NumberField,
-    FileField,
-    CheckboxField,
-    PriceField,
-    PercentField,
-    HiddenField,
-    TelephoneField,
-};
+export const TemperatureField = ConnectedField(Simple.TemperatureInput);
+export const SelectField = ConnectedField(Select);
+export const RatingField = ConnectedRatingField(Rating);
+export const CountryField = ConnectedField(Geography.Country);

@@ -6,6 +6,7 @@ import {
     DropdownMenu,
     DropdownItem,
     ListGroup,
+    Badge,
 } from 'reactstrap';
 
 import Item from './Item';
@@ -19,7 +20,7 @@ const Notifications  = () => (
     >
         <DropdownToggle nav className="dropdown-toggle-nocaret">
             <em className="icon-bell"></em>
-            <span className="badge badge-danger">11</span>
+            <Badge color="info">11</Badge>
         </DropdownToggle>
 
         <DropdownMenu right className="dropdown-menu-right animated flipInX">
@@ -27,7 +28,7 @@ const Notifications  = () => (
                 <ListGroup>
                     <Item
                         icon="envelope"
-                        color="danger"
+                        color="info"
                         title="notifications.tasting.title"
                         subtitle="notifications.tasting.subtitle"
                     />

@@ -3,6 +3,7 @@ import {
     LOADING,
     FAILURE_END_LOADING,
     LIST_WINES_SUCCESS,
+    GET_WINE_SUCCESS,
     COUNT_BOTTLES_SUCCESS,
 } from '../actions/cellar';
 
@@ -26,6 +27,17 @@ export default function (state = INITIAL_STATE, action) {
             return {
                 ...state,
                 count: action.payload.count,
+            };
+        case GET_WINE_SUCCESS:
+            const wines = {
+                ...state.wines,
+                ...action.payload.entities.wines,
+            };
+
+            return {
+                ...state,
+                wines,
+                count: state.count + 1,
             };
         case FAILURE_END_LOADING:
             return {...state, loading: false};

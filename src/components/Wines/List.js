@@ -6,55 +6,21 @@ import ReactDataGrid from 'react-data-grid';
 import { FormattedMessage } from 'react-intl';
 
 import { ContentWrapper } from '../Layout';
-import Loading from '../Loading';
+import { Loading } from '../Common';
+import AddButton from './AddButton';
 import { getWines } from '../../actions/cellar';
+import headers from './headers';
 
 const GRID_MIN_HEIGHT = 700;
-
-const HEADERS = [
-    {
-        key: 'name',
-        name: 'name',
-    },
-    {
-        key: 'bottles',
-        name: 'nb_bottles',
-        formatter: ({value}) => value.length,
-    },
-    {
-        key: 'batch',
-        name: 'batch',
-    },
-    {
-        key: 'vintage',
-        name: 'vintage',
-    },
-    {
-        key: 'classificationLevel',
-        name: 'classification_level',
-    },
-    {
-        key: 'designation',
-        name: 'designation',
-    },
-    {
-        key: 'region',
-        name: 'region',
-    },
-    {
-        key: 'country',
-        name: 'country',
-    }
-];
 
 class List extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            headers: HEADERS.map(rawHeader => {
+            headers: headers.map(rawHeader => {
                 const header = {...rawHeader};
                 header.name = (<FormattedMessage   
-                    id={`wines.list.headers.${header.name}`}
+                    id={`wines.fields.${header.name}`}
                 />);
 
                 return header;
@@ -81,8 +47,9 @@ class List extends React.Component {
             <ContentWrapper
                 title="wines.list.title"
             >
+                <AddButton />
                 {loading && <Loading />}
-                {Object.keys(wines).length && <Container fluid>
+                {!!Object.keys(wines).length && <Container fluid>
                     <ReactDataGrid
                         onGridSort={this.sort}
                         columns={this.state.headers}

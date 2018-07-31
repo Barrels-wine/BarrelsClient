@@ -1,6 +1,9 @@
 common:
+    cancel: 'Annuler'
+    create: 'Ajouter'
     loading: "Chargement…"
     logo: 'Logo Barrels'
+    save: 'Enregistrer'
 dashboard:
     title: 'Accueil'
     subtitle: 'Tableau de bord'
@@ -20,6 +23,15 @@ notifications:
     tasting:
         subtitle: 'Bouteilles prêtes à être goutées'
         title: 'Bouteilles prêtes à être goutées'
+reference:
+    category:
+        champagne: 'Champagne'
+        sweet: 'Liquoreux'
+        wine: 'Vin'
+    color:
+        red: 'Rouge'
+        rose: 'Rosé'
+        white: 'Blanc'
 search:
     placeholder: 'Saisissez votre recherche puis pressez Entrer'
     submit: 'Rechercher'
@@ -29,15 +41,71 @@ sidebar:
         wines: Vins
     dashboard: 'Dashboard'
     header: Menu
+    quick_actions:
+        add_wine: 'Ajouter un vin'
+        header: 'Actions rapides'
+validation:
+    wine:
+        alcohol_degree:
+            no_negative: 'Le degré d''alcool doit être un nombre supérieur à 0.'
+        category:
+            not_valid: 'Cette catégorie n''est pas valide.'
+            required: 'Veuillez renseigner la catégorie.'
+        color:
+            not_valid: 'Cette couleur n''est pas valide.'
+            required: 'Veuillez renseigner la couleur.'
+        country:
+            not_valid: 'Ce pays n''existe pas.'
+            required: 'Veuillez renseigner le pays.'
+        designation:
+            not_valid: 'Cette appellation n''existe pas.'
+            required: 'Veuillez renseigner l''appellation.'
+        climax_from:
+            not_valid: 'Cette date n''est pas valide.'
+        climax_to:
+            not_valid: 'Cette date n''est pas valide.'
+        drink_from:
+            not_valid: 'Cette date n''est pas valide.'
+        drink_to:
+            not_valid: 'Cette date n''est pas valide.'
+        name:
+            required: 'Veuillez renseigner le nom.'
+        rating:
+            between_1_and_5: 'La note doit être comprise entre 1 et 5.'
+        region:
+            not_valid: 'Cette région n''existe pas pour ce pays.'
+            required: 'Veuillez renseigner la région.'
+        not_unique: 'Ce vin existe déjà.'
+        temperature:
+            no_negative: 'La température doit être un nombre supérieur à 0.'
+        varietals:
+            not_valid: 'Les cépages ne sont pas valides.'
 wines:
+    create:
+        button: 'Ajouter un vin'
+        title: 'Ajouter un vin'
+    fields:
+        alcohol_degree: 'Degré d''alcool'
+        batch: 'Cuvée'
+        category: 'Catégorie'
+        classification_level: 'Classement'
+        color: 'Couleur'
+        comment: 'Notes de dégustation'
+        country: 'Pays'
+        designation: 'Appellation'
+        food_pairing: 'Accord mets/vin'
+        name: 'Nom'
+        nb_bottles: 'Nombre'
+        rating: 'Note'
+        region: 'Région'
+        temperature: 'Température'
+        varietals: 'Cépage'
+        vintage: 'Millésime'
+        winemaker: 'Producteur'
+    groups:
+        category: 'Catégorie'
+        consumption: 'Dégustation'
+        detailed: 'Détails'
+        identification: 'Identification'
     list:
-        headers:
-            batch: 'Cuvée'
-            classification_level: 'Classement'
-            country: 'Pays'
-            designation: 'Appelation'
-            name: 'Nom'
-            nb_bottles: 'Nombre'
-            region: 'Région'
-            vintage: 'Millésime'
         title: 'Liste des vins'

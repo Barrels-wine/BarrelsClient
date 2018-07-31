@@ -11,22 +11,21 @@ export const TranslationLabel = (label) => {
 
 export const TranslationError = (error) => {
     return (
-        <FormFeedback invalid>
+        <FormFeedback>
             <FormattedMessage id={`validation.${error}`} />
         </FormFeedback>
     );
 };
 
 export const InputRender = (props) => {
-    const placeholder = props.placeholder || (props.label ? props.label : null);
-
-    const className = classNames(props.className, {
-        'border-right-0': props.inputAddon,
-    });
+    const placeholder = props.placeholder || props.label || null;
+    const invalid = !!props.meta.touched && !!props.meta.error;
 
     const input = (
         <Input
-            className={className}
+            className={classNames(props.className, {
+                'border-right-0': props.inputAddon,
+            })}
             autoComplete={props.autoComplete}
             ref={props.refCallback()}
             type={props.type}
@@ -36,9 +35,12 @@ export const InputRender = (props) => {
             checked={props.input.value}
             onChange={props.input.onChange}
             disabled={props.disabled}
-            invalid={props.meta.touched && props.meta.error}
+            required={props.required}
+            invalid={invalid}
             {...props.props}
-        />
+        >
+            {props.children}
+        </Input>
     );
 
     if (!props.inputAddon) {
@@ -46,7 +48,9 @@ export const InputRender = (props) => {
     }
 
     return (
-        <InputGroup className="with-focus">
+        <InputGroup className={classNames('with-focus', {
+            'is-invalid': invalid,
+        })}>
             {input}
             {props.inputAddon}
         </InputGroup>

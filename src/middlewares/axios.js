@@ -10,7 +10,11 @@ import { API_URL } from '../config/parameters';
 
 const client = axios.create({
     baseURL: API_URL,
-    responseType: 'json'
+    responseType: 'json',
+    headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+    }
 });
 
 const options = {

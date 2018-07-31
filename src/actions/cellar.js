@@ -6,6 +6,7 @@ export const LOADING = 'LOADING';
 export const FAILURE_END_LOADING = 'FAILURE_END_LOADING';
 export const DEFAULT_FAILURE = 'DEFAULT_FAILURE';
 export const LIST_WINES_SUCCESS = 'LIST_WINES_SUCCESS';
+export const GET_WINE_SUCCESS = 'GET_WINE_SUCCESS';
 export const COUNT_BOTTLES_SUCCESS = 'COUNT_BOTTLES_SUCCESS';
 
 export const getWines = () => ({
@@ -27,4 +28,16 @@ export const countBottles = () => ({
             method: 'GET',
         },
     }
-  });
+});
+
+export const createWine = (wine) => ({
+    types: [DEFAULT_ACTION, GET_WINE_SUCCESS, DEFAULT_FAILURE],
+    schema: apiSchema.WINE,
+    payload: {
+        request: {
+            url: 'wines',
+            method: 'POST',
+            data: wine,
+        },
+    }
+});

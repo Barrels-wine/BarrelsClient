@@ -13,12 +13,12 @@ $pink:                  #f532e5;
 $yellow:                #fad732;
 $green:                 #37bc9b;
 
-$primary:               #800020;
+$primary:               #800020; // bs #5d9cec;
 $secondary:             #fff;
-$success:               lighten($primary, 10%);
-$info:                  lighten($primary, 10%);
+$success:               #27c24c;
+$info:                  #000; // bs #23b7e5;
 $warning:               #ff902b;
-$danger:                #000;
+$danger:                #f05050;
 $dark:                  #3a3f51;
 
 // Custom color variants

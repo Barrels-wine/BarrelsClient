@@ -295,3 +295,29 @@ $switch-sm-hg: $switch-sm-wd/2;
         padding-left: 55px;
     }
 }
+
+.input-group.is-invalid ~ .invalid-feedback {
+    display: block;
+}
+
+select:invalid {
+    color: $text-muted;
+    &:focus {
+        color: $text-muted;
+    }
+}
+
+.rating-star {
+    font-size: $text-md;
+    padding: 0;
+    color: $text-muted;
+
+    &:hover, &:focus {
+        text-decoration: none;
+        color: $primary;
+    }
+
+    &.active {
+        color: $primary;
+    }
+}

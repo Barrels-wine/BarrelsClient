@@ -7,10 +7,11 @@ import { logout } from '../../../actions/auth';
 
 import Notifications from './Notifications';
 import NavItem from './NavItem';
-
+import NavItemAdd from './NavItemAdd';
 
 const HeaderRight = ({ logout, toggleSearch }) => (
     <ul className="navbar-nav flex-row">
+        <NavItemAdd />
         <NavItem
             onClick={toggleSearch}
             iconClass="icon-magnifier"

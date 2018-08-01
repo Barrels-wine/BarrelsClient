@@ -34,9 +34,12 @@ class Rating extends React.Component {
 
     render() {
         const { current } = this.state;
+        const invalid = !!this.props.meta.touched && !!this.props.meta.error;
 
         return (
-            <div className="rating">
+            <div className={classNames('rating', {
+                'is-invalid': invalid,
+            })}>
                 {range(1, STARS_NB + 1).map(note => {
                     return (
                         <button

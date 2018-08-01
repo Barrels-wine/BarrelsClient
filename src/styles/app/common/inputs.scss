@@ -296,8 +296,10 @@ $switch-sm-hg: $switch-sm-wd/2;
     }
 }
 
-.input-group.is-invalid ~ .invalid-feedback {
-    display: block;
+.input-group, .select, .rating {
+    &.is-invalid ~ .invalid-feedback {
+        display: block;
+    }
 }
 
 select:invalid {

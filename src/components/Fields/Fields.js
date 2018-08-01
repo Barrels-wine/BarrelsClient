@@ -50,4 +50,4 @@ export const HiddenField = ConnectedField(Simple.HiddenInput);
 export const TemperatureField = ConnectedField(Simple.TemperatureInput);
 export const SelectField = ConnectedField(Select);
 export const RatingField = ConnectedRatingField(Rating);
-export const CountryField = ConnectedField(Geography.Country);
+export const CountryField = ConnectedField(Geography.CountryInput);

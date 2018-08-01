@@ -1,4 +1,6 @@
 // @flow
+import countries from 'i18n-iso-countries';
+
 const notNull = value => value !== null && value !== undefined;
 
 const notBlank = value => notNull(value) && value !== '';
@@ -22,6 +24,7 @@ const range = (value, min = null, max = null) => {
 
     return true;
 };
+const country = value => !notNull(value) || (value.length === 2 && countries.isValid(value));
 
 export {
     notNull,
@@ -29,4 +32,5 @@ export {
     number,
     positiveNumber,
     range,
+    country,
 };

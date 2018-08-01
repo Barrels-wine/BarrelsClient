@@ -1,5 +1,5 @@
 // @flow
-import { notBlank, positiveNumber, range } from './constraints';
+import { notBlank, positiveNumber, range, country } from './constraints';
 
 export default [
     {
@@ -36,6 +36,11 @@ export default [
         check: values => notBlank(values.country),
         path: 'country',
         message: 'wine.country.required',
+    },
+    {
+        check: values => country(values.country),
+        path: 'country',
+        message: 'wine.country.not_valid',
     },
     {
         check: values => {

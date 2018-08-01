@@ -67,5 +67,15 @@ export default [
         check: values => range(values.rating, 1, 5),
         path: 'rating',
         message: 'wine.rating.between_1_and_5',
-    }
+    },
+    {
+        check: values => notBlank(values.vintage),
+        path: 'vintage',
+        message: 'wine.vintage.required',
+    },
+    {
+        check: values => positiveNumber(values.vintage),
+        path: 'vintage',
+        message: 'wine.vintage.not_valid',
+    },
 ];

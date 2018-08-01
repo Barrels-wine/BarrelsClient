@@ -80,6 +80,9 @@ validation:
             no_negative: 'La température doit être un nombre supérieur à 0.'
         varietals:
             not_valid: 'Les cépages ne sont pas valides.'
+        vintage:
+            not_valid: 'L''année saisie n''est pas valide.'
+            required: 'Veuillez entre le millésime.'
 wines:
     create:
         button: 'Ajouter un vin'

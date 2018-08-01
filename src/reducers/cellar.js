@@ -20,7 +20,7 @@ export default function (state = INITIAL_STATE, action) {
         case LIST_WINES_SUCCESS:
             return {
                 ...state,
-                wines: action.payload.entities.wines,
+                wines: action.payload.entities.wines || {},
                 loading: false,
             };
         case COUNT_BOTTLES_SUCCESS:
@@ -31,7 +31,7 @@ export default function (state = INITIAL_STATE, action) {
         case GET_WINE_SUCCESS:
             const wines = {
                 ...state.wines,
-                ...action.payload.entities.wines,
+                ...(action.payload.entities.wines || {}),
             };
 
             return {

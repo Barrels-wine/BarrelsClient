@@ -3,7 +3,8 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { Container } from 'reactstrap';
 import ReactDataGrid from 'react-data-grid';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, injectIntl } from 'react-intl';
+import countries from 'i18n-iso-countries';
 
 import { ContentWrapper } from '../Layout';
 import { Loading } from '../Common';
@@ -24,7 +25,7 @@ class List extends React.Component {
                 />);
 
                 return header;
-            })
+            }),
         }
     }
 
@@ -63,17 +64,13 @@ class List extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        wines: state.cellar.wines,
-        loading: state.cellar.loading,
-    };
-};
+const mapStateToProps = (state) => ({
+    wines: state.cellar.wines,
+    loading: state.cellar.loading,
+});
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        fetchWines: () => dispatch(getWines()),
-    };
-};
+const mapDispatchToProps = (dispatch) => ({
+    fetchWines: () => dispatch(getWines()),
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(List);
+export default connect(mapStateToProps, mapDispatchToProps)(injectIntl(List));

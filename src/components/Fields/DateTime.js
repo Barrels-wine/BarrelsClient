@@ -30,7 +30,13 @@ const DateTimeInput = AbstractInput(props => {
             timeFormat={props.timeFormat || false}
             dateFormat={format}
             locale={props.intl.locale}
-            onChange={value => value ? props.input.onChange(value.format(format)) : null }
+            onChange={value => {
+                if (!value || !moment.isMoment(value)) {
+                    return null;
+                }
+                
+                return props.input.onChange(value.format(format));
+            }}
             closeOnSelect
         />
     );

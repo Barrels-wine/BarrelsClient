@@ -6,9 +6,10 @@ import { injectIntl } from 'react-intl';
 import Simple from './Simple';
 import Select from './Select';
 import Rating from './Rating';
+import DateTime from './DateTime';
 import Geography from './Geography';
 import Varietals from './Varietals';
-import DateTime from './DateTime';
+import Designation from './Designation';
 
 const ConnectedField = (component) => injectIntl((props) => (
     <Field
@@ -56,3 +57,4 @@ export const CountryField = ConnectedField(Geography.CountryInput);
 export const RegionField = ConnectedField(Geography.RegionInput);
 export const VarietalsField = ConnectedField(Varietals);
 export const DateTimeField = ConnectedField(DateTime.DateTimeInput);
+export const DesignationField = ConnectedField(Designation);

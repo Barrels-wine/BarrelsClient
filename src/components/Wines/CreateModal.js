@@ -37,7 +37,7 @@ const mapDispatchToProps = (dispatch, { history }) => {
     return {
         create: (wine) => (
             dispatch(createWine(wine))
-            .then(action => {
+            .then(() => {
                 toast.success(<FormattedMessage id="wines.create.success" />);
                 history.push(routesNames.WINES);
             })

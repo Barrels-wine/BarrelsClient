@@ -8,19 +8,12 @@ import {
     CountryField,
     RegionField,
     VarietalsField,
+    DesignationField,
 } from '../../Fields/Fields';
 import { FormCard } from '../../Common';
 
-const DetailsCard = ({ country }) => (
+const DetailsCard = ({ country, region }) => (
     <FormCard title="wines.groups.details">
-        <TextField
-            name="designation"
-            label="wines.fields.designation"
-        />
-        <TextField
-            name="classificationLevel"
-            label="wines.fields.classification_level"
-        />
         <CountryField
             name="country"
             label="wines.fields.country"
@@ -29,6 +22,16 @@ const DetailsCard = ({ country }) => (
             name="region"
             label="wines.fields.region"
             country={country}
+        />
+        <DesignationField
+            name="designation"
+            label="wines.fields.designation"
+            country={country}
+            region={region}
+        />
+        <TextField
+            name="classificationLevel"
+            label="wines.fields.classification_level"
         />
         <VarietalsField
             name="varietals"
@@ -46,6 +49,7 @@ const mapStateToProps = (state, { form }) => {
 
     return {
         country: selector(state, 'country'),
+        region: selector(state, 'region'),
     };
 }
 

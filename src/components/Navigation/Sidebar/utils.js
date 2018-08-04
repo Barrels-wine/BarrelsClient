@@ -1,27 +1,26 @@
 // @flow
+import isArray from 'lodash/isArray';
+
 const getSubRoutes = (item) => {
     if (!item.submenu) {
         return [];
     }
 
-    return item.submenu.map(({route}) => route)
+    return item.submenu.map(({route}) => route);
 }
 
 const isRouteActive = (routes, current) => {
-    routes = Array.isArray(routes) ? routes : [routes];
-    if (routes.indexOf(current) > -1) {
-        return true;
-    }
+    routes = isArray(routes) ? routes : [routes];
 
-    return false;
+    return routes.indexOf(current) > -1;
 }
 
 const isItemActive = (item, current) => {
-    if (item.type === 'subitem') {
-        return isRouteActive(getSubRoutes(item));
+    if (item.type === 'submenu') {
+        return isRouteActive(getSubRoutes(item), current);
     }
 
-    return isRouteActive(item.route);
+    return isRouteActive(item.route, current);
 };
 
 const findInitiallyExpandedItems = (menu, current) => {

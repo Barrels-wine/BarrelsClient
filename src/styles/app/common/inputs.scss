@@ -309,6 +309,33 @@ select:invalid {
     }
 }
 
+.select.is-invalid > div {
+    border-color: $danger;
+}
+
+.select {
+    .css-1rtrksz {
+        padding: 0.375rem 1rem;
+    }
+    .css-1aya2g8, .css-1aya2g8:hover {
+        border-color: $input-border-color;
+        background: none;
+    }
+    .css-1492t68, .css-1ep9fjw, .css-1sjym57 {
+        color: $input-placeholder-color;
+    }
+    .css-d8oujb {
+        background-color: $input-placeholder-color;
+    }
+    .css-2o5izw, .css-2o5izw:hover {
+        box-shadow: none;
+        border-color: $input-focus-border-color;
+    }
+    .css-xwjg1b {
+        background-color: $input-border-color;
+    }
+}
+
 .rating-star {
     font-size: $text-md;
     padding: 0;

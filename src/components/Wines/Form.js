@@ -1,6 +1,7 @@
 //@flow
 import * as React from 'react';
-import { reduxForm } from 'redux-form';
+import { reduxForm, formValueSelector } from 'redux-form';
+import { connect } from 'react-redux';
 import {
     Form as BsForm,
     Container,
@@ -16,11 +17,13 @@ import {
     SelectField,
     RatingField,
     CountryField,
+    RegionField,
+    VarietalsField,
 } from '../Fields/Fields';
 import { FormCard } from '../Common';
 import { validateWine } from '../../validation';
 
-const Form = ({ handleSubmit }) => (
+const Form = ({ handleSubmit, country }) => (
     <BsForm onSubmit={handleSubmit} noValidate>
         <Container fluid>
             <Row>
@@ -37,34 +40,6 @@ const Form = ({ handleSubmit }) => (
                         <NumberField
                             name="vintage"
                             label="wines.fields.vintage"
-                        />
-                    </FormCard>
-                </Col>
-                <Col lg={6}>
-                    <FormCard title="wines.groups.detailed">
-                        <TextField
-                            name="designation"
-                            label="wines.fields.designation"
-                        />
-                        <TextField
-                            name="classificationLevel"
-                            label="wines.fields.classification_level"
-                        />
-                        <CountryField
-                            name="country"
-                            label="wines.fields.country"
-                        />
-                        <TextField
-                            name="region"
-                            label="wines.fields.region"
-                        />
-                        <TextField
-                            name="varietals"
-                            label="wines.fields.varietals"
-                        />
-                        <TextField
-                            name="winemaker"
-                            label="wines.fields.winemaker"
                         />
                     </FormCard>
                 </Col>
@@ -91,7 +66,52 @@ const Form = ({ handleSubmit }) => (
                             label="wines.fields.alcohol_degree"
                         />
                     </FormCard>
+                    <FormCard title="wines.groups.detailed">
+                        <TextField
+                            name="designation"
+                            label="wines.fields.designation"
+                        />
+                        <TextField
+                            name="classificationLevel"
+                            label="wines.fields.classification_level"
+                        />
+                        <CountryField
+                            name="country"
+                            label="wines.fields.country"
+                        />
+                        <RegionField
+                            name="region"
+                            label="wines.fields.region"
+                            country={country}
+                        />
+                        <VarietalsField
+                            name="varietals"
+                            label="wines.fields.varietals"
+                        />
+                        <TextField
+                            name="winemaker"
+                            label="wines.fields.winemaker"
+                        />
+                    </FormCard>
+                </Col>
+                <Col lg={6}>
                     <FormCard title="wines.groups.consumption">
+                        <NumberField
+                            name="drinkFrom"
+                            label="wines.fields.drink_from"
+                        />
+                        <NumberField
+                            name="drinkTo"
+                            label="wines.fields.drink_to"
+                        />
+                        <NumberField
+                            name="climaxFrom"
+                            label="wines.fields.climax_from"
+                        />
+                        <NumberField
+                            name="climaxTo"
+                            label="wines.fields.climax_to"
+                        />
                         <TemperatureField
                             name="temperature"
                             label="wines.fields.temperature"
@@ -115,6 +135,14 @@ const Form = ({ handleSubmit }) => (
     </BsForm>
 );
 
+const mapStateToProps = (state, { form }) => {
+    const selector = formValueSelector(form);
+
+    return {
+        country: selector(state, 'country'),
+    };
+}
+
 export default reduxForm({
     validate: validateWine,
-})(Form);
+})(connect(mapStateToProps)(Form));

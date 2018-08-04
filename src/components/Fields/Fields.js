@@ -7,6 +7,7 @@ import Simple from './Simple';
 import Select from './Select';
 import Rating from './Rating';
 import Geography from './Geography';
+import Varietals from './Varietals';
 
 const ConnectedField = (component) => injectIntl((props) => (
     <Field
@@ -51,3 +52,5 @@ export const TemperatureField = ConnectedField(Simple.TemperatureInput);
 export const SelectField = ConnectedField(Select);
 export const RatingField = ConnectedRatingField(Rating);
 export const CountryField = ConnectedField(Geography.CountryInput);
+export const RegionField = ConnectedField(Geography.RegionInput);
+export const VarietalsField = ConnectedField(Varietals);

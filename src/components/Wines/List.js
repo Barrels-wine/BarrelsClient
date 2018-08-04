@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { Container } from 'reactstrap';
 import ReactDataGrid from 'react-data-grid';
 import { FormattedMessage, injectIntl } from 'react-intl';
-import countries from 'i18n-iso-countries';
 
 import { ContentWrapper } from '../Layout';
 import { Loading } from '../Common';
@@ -56,7 +55,8 @@ class List extends React.Component {
                         columns={this.state.headers}
                         rowGetter={(i) => wines[Object.keys(wines)[i]]}
                         rowsCount={Object.keys(wines).length}
-                        minHeight={GRID_MIN_HEIGHT} />
+                        minHeight={GRID_MIN_HEIGHT}
+                    />
                 </Container>}
 
             </ContentWrapper>

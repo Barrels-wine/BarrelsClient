@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import { FormattedMessage } from 'react-intl';
-import { ListGroupItem } from 'reactstrap';
+import { ListGroupItem, Badge } from 'reactstrap';
 
 const More  = () => (
     <ListGroupItem action tag="a" href="" onClick={e => e.preventDefault()}>
@@ -9,7 +9,7 @@ const More  = () => (
             <span className="text-sm">
                 <FormattedMessage id="notifications.more" />
             </span>
-            <span className="badge badge-success ml-auto">14</span>
+            <Badge className="ml-auto" color="info">14</Badge>
         </span>
     </ListGroupItem>
 );

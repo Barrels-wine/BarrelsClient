@@ -3,7 +3,7 @@ import * as React from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import Form from './Form';
-import Logo from '../Logo';
+import { Logo } from '../Common';
 
 const Login = (props) => (
     <div className="abs-center wd-xl login">

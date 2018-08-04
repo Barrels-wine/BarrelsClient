@@ -3,7 +3,7 @@ import * as React from 'react';
 import { injectIntl } from 'react-intl';
 import classNames from 'classnames';
 
-import { logoWhite, logoWhiteWithText, logoPrimary } from '../config/images';
+import { logoWhite, logoWhiteWithText, logoPrimary } from '../../config/images';
 
 const Logo = (props) => {
     const className = classNames(props.className, {

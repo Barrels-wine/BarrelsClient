@@ -5,10 +5,17 @@ import { ConnectedRouter } from 'connected-react-router'
 import { IntlProvider, addLocaleData } from 'react-intl';
 import en from 'react-intl/locale-data/en';
 import fr from 'react-intl/locale-data/fr';
+import countries from 'i18n-iso-countries';
+import { ToastContainer } from 'react-toastify';
+
+import moment from 'moment';
+import locale_fr from 'moment/locale/fr';
 
 import Routes from './components/Routes';
 import getTranslations from './translations';
-import Loading from './components/Loading';
+import { Loading } from './components/Common';
+
+const TOAST_AUTOCLOSE = 10000;
 
 class App extends React.Component {
   constructor(props) {
@@ -21,6 +28,8 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    moment.locale('fr', locale_fr);
+
     addLocaleData([...en, ...fr]);
     let locale = navigator.language.substring(0, 2);
 
@@ -28,6 +37,8 @@ class App extends React.Component {
         if (!translations[locale]) {
             locale = 'fr';
         }
+
+        countries.registerLocale(require(`i18n-iso-countries/langs/${locale}.json`));
 
         this.setState({
           locale,
@@ -57,6 +68,10 @@ class App extends React.Component {
                 messages={translations[locale]}
             >
                 <PersistGate loading={<Loading />} persistor={persistor} >
+                    <ToastContainer
+                        autoClose={TOAST_AUTOCLOSE}
+                        newestOnTop
+                    />
                     <ConnectedRouter history={history}>
                         <Routes store={store} />
                     </ConnectedRouter>

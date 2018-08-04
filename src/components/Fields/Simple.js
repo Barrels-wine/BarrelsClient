@@ -8,7 +8,14 @@ import { AbstractInput, InputRender, TranslationError } from './Abstract';
 const SimpleInput = (type) => AbstractInput((props) => (<InputRender type={type} {...props} />));
 
 const TextInput = SimpleInput('text');
-const TextareaInput = SimpleInput('textarea');
+const TextareaInput = AbstractInput((props) => (
+    <InputRender
+        type="textarea"
+        props={{ rows: "3" }}
+        className="note-editor"
+        {...props}
+    />
+));
 const EmailInput = SimpleInput('email');
 const NumberInput = SimpleInput('number');
 const TelephoneInput = SimpleInput('tel');
@@ -48,25 +55,34 @@ const PercentInput = AbstractInput((props) => (
     />
 ));
 
-const CheckboxInput = (props) => {
-    return (
-        <FormGroup check>
-            <Label check>
-                <InputRender
-                    type="checkbox"
-                    invalid={props.meta.touched && props.meta.error}
-                    checked={props.input.value}
-                    onChange={(e) => props.input.onChange(e.target.checked)}
-                    {...props}
-                />
-                {' '}
-                <FormattedMessage id={props.label} />
-            </Label>
-            {props.meta.touched && props.meta.error && TranslationError(props.meta.error)}
-            {props.help && <FormText className="small">{props.help}</FormText>}
-        </FormGroup>
-    );
-};
+const CheckboxInput = (props) => (
+    <FormGroup check>
+        <Label check>
+            <InputRender
+                type="checkbox"
+                invalid={props.meta.touched && props.meta.error}
+                checked={props.input.value}
+                onChange={(e) => props.input.onChange(e.target.checked)}
+                {...props}
+            />
+            {' '}
+            <FormattedMessage id={props.label} />
+        </Label>
+        {props.meta.touched && props.meta.error && TranslationError(props.meta.error)}
+        {props.help && <FormText className="small">{props.help}</FormText>}
+    </FormGroup>
+);
+
+const TemperatureInput = AbstractInput((props) => (
+    <InputRender
+        type="number"
+        props={{step: '1', min: 0}}
+        inputAddon={
+            <InputGroupAddon addonType="append">°C</InputGroupAddon>
+        }
+        {...props}
+    />
+));
 
 export default {
     TextInput,
@@ -80,4 +96,5 @@ export default {
     PriceInput,
     PercentInput,
     TelephoneInput,
+    TemperatureInput,
 };

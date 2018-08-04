@@ -3,7 +3,6 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
 
-import Messages from '../Messages';
 import { Header, Sidebar, Footer } from '../Navigation';
 
 const Layout = ({ children, showSidebar, collapseSidebar }) => (
@@ -13,7 +12,6 @@ const Layout = ({ children, showSidebar, collapseSidebar }) => (
         'aside-toggled': showSidebar,
     })} >
         <div className="wrapper">
-            {/*<Messages />*/}
             <Header />
             <Sidebar />
             <section className="section-container">

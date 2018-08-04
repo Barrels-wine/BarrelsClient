@@ -2,6 +2,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import ReactDateTime from 'react-datetime';
+import moment from 'moment';
 
 import { AbstractInput } from './Abstract';
 
@@ -19,7 +20,7 @@ const DateTimeInput = AbstractInput(props => {
             className={classNames('datetime', {
                 'is-invalid': invalid,
             })}
-            value={props.input.value}
+            value={moment(props.input.value, format)}
             inputProps={{
                 className: classNames('form-control', {
                     'is-invalid': invalid,
@@ -29,7 +30,7 @@ const DateTimeInput = AbstractInput(props => {
             timeFormat={props.timeFormat || false}
             dateFormat={format}
             locale={props.intl.locale}
-            onChange={value => props.input.onChange(value)}
+            onChange={value => value ? props.input.onChange(value.format(format)) : null }
             closeOnSelect
         />
     );

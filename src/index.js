@@ -2,9 +2,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createBrowserHistory } from 'history';
+
 import '../node_modules/simple-line-icons/css/simple-line-icons.css';
 import '../node_modules/font-awesome/css/font-awesome.min.css';
 import '../node_modules/react-datetime/css/react-datetime.css';
+import '../node_modules/react-toastify/dist/ReactToastify.min.css';
 
 import './index.css';
 import App from './App';

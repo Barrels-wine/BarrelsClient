@@ -2,7 +2,6 @@
 import * as React from 'react';
 import { Field } from 'redux-form';
 import { injectIntl } from 'react-intl';
-import { Col, Row } from 'reactstrap';
 
 import Simple from './Simple';
 import Select from './Select';

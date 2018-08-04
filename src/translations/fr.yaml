@@ -7,7 +7,12 @@ common:
 dashboard:
     title: 'Accueil'
     subtitle: 'Tableau de bord'
+error:
+    default: 'Une erreur est survenue.'
+    must_be_logged_in: 'Vous devez d''abord vous connecter.'
+    validation_failed: 'Le formulaire n''est pas valide, veuillez vérifier les informations saisies.'
 login:
+    bad_credentials: 'Nom d''utilisateur ou mot de passe incorrect.'
     forgotten: 'Mot de passe oublié ?'
     password: 'Mot de passe'
     submit: 'Connexion'
@@ -88,6 +93,7 @@ validation:
 wines:
     create:
         button: 'Ajouter un vin'
+        success: 'Le vin a été créé avec succès.'
         title: 'Ajouter un vin'
     fields:
         alcohol_degree: 'Degré d''alcool'

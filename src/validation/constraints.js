@@ -24,6 +24,10 @@ const range = (value, min = null, max = null) => {
 
     return true;
 };
+
+const lessThan = (value, max) => range(value, null, max);
+const moreThan = (value, min) => range(value, min);
+
 const country = value => !notNull(value) || (value.length === 2 && countries.isValid(value));
 
 export {
@@ -32,5 +36,7 @@ export {
     number,
     positiveNumber,
     range,
+    lessThan,
+    moreThan,
     country,
 };

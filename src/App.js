@@ -7,6 +7,9 @@ import en from 'react-intl/locale-data/en';
 import fr from 'react-intl/locale-data/fr';
 import countries from 'i18n-iso-countries';
 
+import moment from 'moment';
+import locale_fr from 'moment/locale/fr';
+
 import Routes from './components/Routes';
 import getTranslations from './translations';
 import { Loading } from './components/Common';
@@ -22,6 +25,8 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    moment.locale('fr', locale_fr);
+
     addLocaleData([...en, ...fr]);
     let locale = navigator.language.substring(0, 2);
 

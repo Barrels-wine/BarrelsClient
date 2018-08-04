@@ -10,6 +10,11 @@ export default (constraints) => (values) => {
 
     constraints.forEach(constraint => {
         if (!constraint.check(values)) {
+            if (constraint.setErrors) {
+                errors = constraint.setErrors(errors);
+                return;
+            }
+            
             errors = addError(errors, constraint.path, constraint.message);
         }
     });

@@ -2,6 +2,7 @@ import * as React from 'react';
 import { FormGroup, Input, Label, FormText, InputGroup, FormFeedback } from 'reactstrap';
 import { FormattedMessage } from 'react-intl';
 import classNames from 'classnames';
+import isString from 'lodash/isString';
 
 export const TranslationLabel = (label) => {
     return (
@@ -10,11 +11,11 @@ export const TranslationLabel = (label) => {
 };
 
 export const TranslationError = (error) => {
-    return (
+    return isString(error) ? (
         <FormFeedback>
             <FormattedMessage id={`validation.${error}`} />
         </FormFeedback>
-    );
+    ) : null;
 };
 
 export const InputRender = (props) => {

@@ -1,5 +1,11 @@
 // @flow
-import { notBlank, positiveNumber, range, country } from './constraints';
+import {
+    notBlank,
+    positiveNumber,
+    range,
+    country,
+    lessThan,
+} from './constraints';
 
 export default [
     {
@@ -77,5 +83,41 @@ export default [
         check: values => positiveNumber(values.vintage),
         path: 'vintage',
         message: 'wine.vintage.not_valid',
+    },
+    {
+        check: values => positiveNumber(values.drinkFrom),
+        path: 'drinkFrom',
+        message: 'wine.drink_from.not_valid',
+    },
+    {
+        check: values => positiveNumber(values.drinkTo),
+        path: 'drinkTo',
+        message: 'wine.drink_to.not_valid',
+    },
+    {
+        check: values => positiveNumber(values.climaxFrom),
+        path: 'climaxFrom',
+        message: 'wine.climax_from.not_valid',
+    },
+    {
+        check: values => positiveNumber(values.climaxTo),
+        path: 'climaxTo',
+        message: 'wine.climax_to.not_valid',
+    },
+    {
+        check: values => lessThan(values.drinkFrom, values.drinkTo),
+        setErrors: (errors) => ({
+            ...errors,
+            drinkFrom: 'wine.drink_from.less_than_drink_to',
+            drinkTo: true,
+        }),
+    },
+    {
+        check: values => lessThan(values.climaxFrom, values.climaxTo),
+        setErrors: (errors) => ({
+            ...errors,
+            climaxFrom: 'wine.climax_from.less_than_climax_to',
+            climaxTo: true,
+        }),
     },
 ];

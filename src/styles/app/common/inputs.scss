@@ -296,7 +296,7 @@ $switch-sm-hg: $switch-sm-wd/2;
     }
 }
 
-.input-group, .select, .rating {
+.input-group, .select, .rating, .datetime {
     &.is-invalid ~ .invalid-feedback {
         display: block;
     }

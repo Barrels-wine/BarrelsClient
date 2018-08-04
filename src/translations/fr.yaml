@@ -61,10 +61,12 @@ validation:
             not_valid: 'Cette appellation n''existe pas.'
             required: 'Veuillez renseigner l''appellation.'
         climax_from:
+            less_than_climax_to: 'Désolé, on ne sait pas remonter le temps.'
             not_valid: 'Cette date n''est pas valide.'
         climax_to:
             not_valid: 'Cette date n''est pas valide.'
         drink_from:
+            less_than_drink_to: 'Désolé, on ne sait pas remonter le temps.'
             not_valid: 'Cette date n''est pas valide.'
         drink_to:
             not_valid: 'Cette date n''est pas valide.'
@@ -112,7 +114,7 @@ wines:
     groups:
         category: 'Catégorie'
         consumption: 'Dégustation'
-        detailed: 'Détails'
+        details: 'Détails'
         identification: 'Identification'
     list:
         title: 'Liste des vins'

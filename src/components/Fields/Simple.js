@@ -76,7 +76,7 @@ const CheckboxInput = (props) => (
 const TemperatureInput = AbstractInput((props) => (
     <InputRender
         type="number"
-        props={{step: '1', min: 0}}
+        props={{step: '0.1', min: 0}}
         inputAddon={
             <InputGroupAddon addonType="append">°C</InputGroupAddon>
         }

@@ -30,11 +30,11 @@ const filterDesignations = (designations, country, region) => {
 }
 
 const mapStateToProps = (state, { country, region }) => ({
-        designations: filterDesignations(
-            state.references.designations,
-            country,
-            region
-        ),
+    designations: filterDesignations(
+        state.references.designations,
+        country,
+        region
+    ),
 });
 
 const DesignationInput = connect(mapStateToProps)(Designation);

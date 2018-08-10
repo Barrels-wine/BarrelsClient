@@ -11,6 +11,11 @@ error:
     default: 'Une erreur est survenue.'
     must_be_logged_in: 'Vous devez d''abord vous connecter.'
     validation_failed: 'Le formulaire n''est pas valide, veuillez vérifier les informations saisies.'
+    wine_not_found: 'Le vin demandé n''existe pas.'
+footer:
+    legal_warning:
+        consumption: 'L''abus d''alcool est dangereux pour la santé, à consommer avec modération.'
+        pregnancy: 'La consommation de boissons alcoolisées pendant la grossesse, même en faible quantité, peut avoir des conséquences graves sur la santé de l’enfant.'
 login:
     bad_credentials: 'Nom d''utilisateur ou mot de passe incorrect.'
     forgotten: 'Mot de passe oublié ?'
@@ -50,6 +55,23 @@ sidebar:
         add_wine: 'Ajouter un vin'
         header: 'Actions rapides'
 validation:
+    bottle:
+        acquisition_price:
+            no_negative: 'Le prix d''achat ne peut pas être négatif.'
+        estimation_price:
+            no_negative: 'Le prix estimé ne peut pas être négatif.'
+        storage_location:
+            required: 'Veuillez spécifier le lieu de stockage.'
+        volume:
+            required: 'Veuillez renseigner le format.'
+        wine:
+            required: 'Veuillez spécifier le vin.'
+    storage_location:
+        capacity:
+            no_negative: 'La capacité doit être un nombre positif.'
+        name:
+            not_unique: 'Ce lieu de stockage existe déjà.'
+            required: 'Veuillez spécifier le nom.'
     wine:
         alcohol_degree:
             no_negative: 'Le degré d''alcool doit être un nombre supérieur à 0.'

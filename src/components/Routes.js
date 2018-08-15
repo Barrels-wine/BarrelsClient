@@ -24,15 +24,15 @@ const Routes = ({location}) => {
           <PageLayout>
               <Switch location={location}>
                   <Route
-                    path={`/${routesNames.LOGIN}`}
+                    path={`${process.env.PUBLIC_URL}${routesNames.LOGIN}`}
                     render={(props) => (<Login {...props} />)}
                   />
                   <Route
-                    path={`/${routesNames.LOGOUT}`}
+                    path={`${process.env.PUBLIC_URL}${routesNames.LOGOUT}`}
                     render={(props) => (<Logout {...props} />)}
                   />
                   <Route
-                    path={`/${routesNames.NOT_FOUND}`}
+                    path={`${process.env.PUBLIC_URL}${routesNames.NOT_FOUND}`}
                     render={(props) => (<NotFound {...props} />)}
                   />
               </Switch>
@@ -43,7 +43,6 @@ const Routes = ({location}) => {
   const currentKey = location.pathname.split('/')[1] || '/';
   const timeout = { enter: 500, exit: 500 };
   const animationName = 'rag-fadeIn';
-
   return (
         <Layout>
             <TransitionGroup>
@@ -52,14 +51,14 @@ const Routes = ({location}) => {
                         <Switch location={location}>
                             <SecureRoute
                                 exact
-                                path={routesNames.DASHBOARD}
+                                path={`${process.env.PUBLIC_URL}${routesNames.DASHBOARD}`}
                                 render={(props) => <Dashboard {...props} />}
                             />
                             <SecureRoute
-                                path={routesNames.WINES}
+                                path={`${process.env.PUBLIC_URL}${routesNames.WINES}`}
                                 render={(props) => <WinesList {...props} />}
                             />
-                            <Redirect to={routesNames.NOT_FOUND} />
+                            <Redirect to={`${process.env.PUBLIC_URL}${routesNames.NOT_FOUND}`} />
                         </Switch>
                     </div>
                 </CSSTransition>

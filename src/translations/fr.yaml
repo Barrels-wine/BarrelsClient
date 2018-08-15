@@ -18,7 +18,7 @@ footer:
         pregnancy: 'La consommation de boissons alcoolisées pendant la grossesse, même en faible quantité, peut avoir des conséquences graves sur la santé de l’enfant.'
 login:
     bad_credentials: 'Nom d''utilisateur ou mot de passe incorrect.'
-    forgotten: 'Mot de passe pas beau ?'
+    forgotten: 'Mot de passe oublié ?'
     password: 'Mot de passe'
     submit: 'Connexion'
     title: 'Barrels'

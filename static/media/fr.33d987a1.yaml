@@ -1,0 +1,19 @@
+common:
+    loading: "Chargement…"
+    logo: 'Logo My Cellar'
+layout:
+    title: "My Cellar"
+login:
+    forgotten: 'Mot de passe oublié ?'
+    password: 'Mot de passe'
+    submit: 'Connexion'
+    title: 'My Cellar'
+    username: 'Nom d''utilisateur'
+notifications:
+    more: 'Plus de notifications'
+    tasting:
+        subtitle: 'Bouteilles prêtes à être goutées'
+        title: 'Bouteilles prêtes à être goutées'
+search:
+    placeholder: 'Saisissez votre recherche puis pressez Entrer'
+    submit: 'Rechercher'

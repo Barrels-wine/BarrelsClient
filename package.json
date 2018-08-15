@@ -2,7 +2,7 @@
   "name": "barrels-client",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://barrels.fr",
+  "homepage": "http://app.barrels.wine",
   "scripts": {
     "build-css": "node-sass-chokidar --include-path ./node_modules/ ./src/index.scss ./src/index.css",
     "watch-css": "node-sass-chokidar --include-path ./node_modules/ ./src/index.scss ./src/index.css --watch",
@@ -13,7 +13,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "echo 'barrels.fr' > ./build/CNAME && gh-pages -d build"
+    "deploy": "cp ./.env ./.env.production && echo 'app.barrels.wine' > ./build/CNAME && gh-pages -d build"
   },
   "dependencies": {
     "axios": "^0.18.0",

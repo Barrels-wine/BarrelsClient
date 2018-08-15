@@ -8,10 +8,9 @@ import { toast } from 'react-toastify';
 import { FormattedMessage } from 'react-intl';
 
 import routesNames from '../config/routesNames';
-import { API_URL } from '../config/parameters';
 
 const client = axios.create({
-    baseURL: API_URL,
+    baseURL: process.env.API_URL,
     responseType: 'json',
     headers: {
         'Content-Type': 'application/json',

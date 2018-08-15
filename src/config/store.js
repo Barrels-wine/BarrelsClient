@@ -4,7 +4,6 @@ import { persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { connectRouter } from 'connected-react-router';
 
-import { DEV } from './parameters';
 import rootReducer from './../reducers';
 import getRootMiddleware from './../middlewares';
 
@@ -12,7 +11,7 @@ const PERSIST_CONFIG = {
     whitelist: ['auth'],
     key: 'root',
     storage,
-    debug: !!DEV,
+    debug: process.env.DEV === 'true',
 };
 
 export default function configureStore(history) {

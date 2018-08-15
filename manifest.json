@@ -1,6 +1,6 @@
 {
-  "short_name": "My Cellar",
-  "name": "My Cellar Client",
+  "short_name": "Barrels",
+  "name": "Barrels Client",
   "icons": [
     {
       "src": "favicon.ico",

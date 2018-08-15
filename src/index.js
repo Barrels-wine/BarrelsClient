@@ -24,4 +24,6 @@ ReactDOM.render(
   />, document.getElementById('app')
 );
 
-registerServiceWorker();
+if (process.env.REACT_APP_DEV === 'true') {
+  registerServiceWorker();
+}

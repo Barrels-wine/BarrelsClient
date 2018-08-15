@@ -1,0 +1,148 @@
+common:
+    cancel: 'Annuler'
+    create: 'Ajouter'
+    loading: "Chargement…"
+    logo: 'Logo Barrels'
+    save: 'Enregistrer'
+dashboard:
+    title: 'Accueil'
+    subtitle: 'Tableau de bord'
+error:
+    default: 'Une erreur est survenue.'
+    must_be_logged_in: 'Vous devez d''abord vous connecter.'
+    validation_failed: 'Le formulaire n''est pas valide, veuillez vérifier les informations saisies.'
+    wine_not_found: 'Le vin demandé n''existe pas.'
+footer:
+    legal_warning:
+        consumption: 'L''abus d''alcool est dangereux pour la santé, à consommer avec modération.'
+        pregnancy: 'La consommation de boissons alcoolisées pendant la grossesse, même en faible quantité, peut avoir des conséquences graves sur la santé de l’enfant.'
+login:
+    bad_credentials: 'Nom d''utilisateur ou mot de passe incorrect.'
+    forgotten: 'Mot de passe pas beau ?'
+    password: 'Mot de passe'
+    submit: 'Connexion'
+    title: 'Barrels'
+    username: 'Nom d''utilisateur'
+not_found:
+    dashboard: 'Accueil'
+    login: 'Se connecter'
+    subtitle: 'Cette page n''existe pas.'
+    title: 'Page non trouvée'
+notifications:
+    more: 'Plus de notifications'
+    tasting:
+        subtitle: 'Bouteilles prêtes à être goutées'
+        title: 'Bouteilles prêtes à être goutées'
+reference:
+    category:
+        champagne: 'Champagne'
+        sweet: 'Liquoreux'
+        wine: 'Vin'
+    color:
+        red: 'Rouge'
+        rose: 'Rosé'
+        white: 'Blanc'
+search:
+    placeholder: 'Saisissez votre recherche puis pressez Entrer'
+    submit: 'Rechercher'
+sidebar:
+    cellar:
+        header: Ma cave
+        wines: Vins
+    dashboard: 'Dashboard'
+    header: Menu
+    quick_actions:
+        add_wine: 'Ajouter un vin'
+        header: 'Actions rapides'
+validation:
+    bottle:
+        acquisition_price:
+            no_negative: 'Le prix d''achat ne peut pas être négatif.'
+        estimation_price:
+            no_negative: 'Le prix estimé ne peut pas être négatif.'
+        storage_location:
+            required: 'Veuillez spécifier le lieu de stockage.'
+        volume:
+            required: 'Veuillez renseigner le format.'
+        wine:
+            required: 'Veuillez spécifier le vin.'
+    storage_location:
+        capacity:
+            no_negative: 'La capacité doit être un nombre positif.'
+        name:
+            not_unique: 'Ce lieu de stockage existe déjà.'
+            required: 'Veuillez spécifier le nom.'
+    wine:
+        alcohol_degree:
+            no_negative: 'Le degré d''alcool doit être un nombre supérieur à 0.'
+        category:
+            not_valid: 'Cette catégorie n''est pas valide.'
+            required: 'Veuillez renseigner la catégorie.'
+        color:
+            not_valid: 'Cette couleur n''est pas valide.'
+            required: 'Veuillez renseigner la couleur.'
+        country:
+            not_valid: 'Ce pays n''existe pas.'
+            required: 'Veuillez renseigner le pays.'
+        designation:
+            not_valid: 'Cette appellation n''existe pas.'
+            required: 'Veuillez renseigner l''appellation.'
+        climax_from:
+            less_than_climax_to: 'Désolé, on ne sait pas remonter le temps.'
+            not_valid: 'Cette date n''est pas valide.'
+        climax_to:
+            not_valid: 'Cette date n''est pas valide.'
+        drink_from:
+            less_than_drink_to: 'Désolé, on ne sait pas remonter le temps.'
+            not_valid: 'Cette date n''est pas valide.'
+        drink_to:
+            not_valid: 'Cette date n''est pas valide.'
+        name:
+            required: 'Veuillez renseigner le nom.'
+        rating:
+            between_1_and_5: 'La note doit être comprise entre 1 et 5.'
+        region:
+            not_valid: 'Cette région n''existe pas pour ce pays.'
+            required: 'Veuillez renseigner la région.'
+        not_unique: 'Ce vin existe déjà.'
+        temperature:
+            no_negative: 'La température doit être un nombre supérieur à 0.'
+        varietals:
+            not_valid: 'Les cépages ne sont pas valides.'
+        vintage:
+            not_valid: 'L''année saisie n''est pas valide.'
+            required: 'Veuillez entre le millésime.'
+wines:
+    create:
+        button: 'Ajouter un vin'
+        success: 'Le vin a été créé avec succès.'
+        title: 'Ajouter un vin'
+    fields:
+        alcohol_degree: 'Degré d''alcool'
+        batch: 'Cuvée'
+        category: 'Catégorie'
+        classification_level: 'Classement'
+        color: 'Couleur'
+        comment: 'Notes de dégustation'
+        country: 'Pays'
+        designation: 'Appellation'
+        drink_from: 'Boire de'
+        drink_to: 'à'
+        climax_from: 'Apogée de'
+        climax_to: 'à'
+        food_pairing: 'Accord mets/vin'
+        name: 'Nom'
+        nb_bottles: 'Nombre'
+        rating: 'Note'
+        region: 'Région'
+        temperature: 'Température'
+        varietals: 'Cépage'
+        vintage: 'Millésime'
+        winemaker: 'Producteur'
+    groups:
+        category: 'Catégorie'
+        consumption: 'Dégustation'
+        details: 'Détails'
+        identification: 'Identification'
+    list:
+        title: 'Liste des vins'

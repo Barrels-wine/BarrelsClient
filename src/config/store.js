@@ -11,7 +11,7 @@ const PERSIST_CONFIG = {
     whitelist: ['auth'],
     key: 'root',
     storage,
-    debug: process.env.REACT_APP_DEV === 'true',
+    debug: process.env.NODE_ENV === 'developement',
 };
 
 export default function configureStore(history) {

@@ -10,7 +10,7 @@ import { FormattedMessage } from 'react-intl';
 import routesNames from '../config/routesNames';
 
 const client = axios.create({
-    baseURL: process.env.API_URL,
+    baseURL: process.env.REACT_APP_API_URL,
     responseType: 'json',
     headers: {
         'Content-Type': 'application/json',

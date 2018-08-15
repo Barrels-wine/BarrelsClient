@@ -3,6 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "http://barrels.fr",
+  "scripts": {
+    "build-css": "node-sass-chokidar --include-path ./node_modules/ ./src/index.scss ./src/index.css",
+    "watch-css": "node-sass-chokidar --include-path ./node_modules/ ./src/index.scss ./src/index.css --watch",
+    "start-js": "react-scripts start",
+    "start": "npm-run-all -p watch-css start-js",
+    "build-js": "react-scripts build",
+    "build": "npm-run-all build-css build-js",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "echo 'barrels.fr' > ./build/CNAME && gh-pages -d build"
+  },
   "dependencies": {
     "axios": "^0.18.0",
     "bootstrap": "^4.1.3",
@@ -40,19 +52,8 @@
     "simple-line-icons": "^2.4.1",
     "yamljs": "^0.3.0"
   },
-  "scripts": {
-    "build-css": "node-sass-chokidar --include-path ./node_modules/ ./src/index.scss ./src/index.css",
-    "watch-css": "node-sass-chokidar --include-path ./node_modules/ ./src/index.scss ./src/index.css --watch",
-    "start-js": "react-scripts start",
-    "start": "npm-run-all -p watch-css start-js",
-    "build-js": "react-scripts build",
-    "build": "npm-run-all build-css build-js",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
-  },
   "devDependencies": {
     "gh-pages": "^1.2.0"
   }
+  
 }

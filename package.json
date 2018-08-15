@@ -12,8 +12,8 @@
     "build": "npm-run-all build-css build-js",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "cp ./.env ./.env.production && echo 'app.barrels.wine' > ./build/CNAME && gh-pages -d build"
+    "predeploy": "cp ./.env ./.env.production && npm run build && mkdir -p ./build && echo 'app.barrels.wine' > ./build/CNAME",
+    "deploy": "gh-pages --repo https://$GH_TOKEN@github.com/Barrels-wine/BarrelsClient.git -d build"
   },
   "dependencies": {
     "axios": "^0.18.0",

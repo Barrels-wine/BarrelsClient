@@ -24,14 +24,17 @@ const Routes = ({location}) => {
           <PageLayout>
               <Switch location={location}>
                   <Route
+                    path={`${process.env.PUBLIC_URL}/`}
                     path={routesNames.LOGIN}
                     render={(props) => (<Login {...props} />)}
                   />
                   <Route
+                    path={`${process.env.PUBLIC_URL}/`}
                     path={routesNames.LOGOUT}
                     render={(props) => (<Logout {...props} />)}
                   />
                   <Route
+                    path={`${process.env.PUBLIC_URL}/`}
                     path={routesNames.NOT_FOUND}
                     render={(props) => (<NotFound {...props} />)}
                   />

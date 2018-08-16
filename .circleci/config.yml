@@ -29,7 +29,7 @@ jobs:
                 command: git config --global user.email $GH_EMAIL && git config --global user.name $GH_NAME
             - deploy:
                 name: Deploy to GitHub Pages
-                command: yarn deploy
+                command: yarn deploy --repo https://$GH_TOKEN@github.com/Barrels-wine/BarrelsClient.git
 
 workflows:
     version: 2
@@ -38,4 +38,5 @@ workflows:
             - deploy:
                 filters:
                     branches:
-                        only: master
+                        only:
+                            - master

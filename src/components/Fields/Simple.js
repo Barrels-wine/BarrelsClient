@@ -78,7 +78,7 @@ const TemperatureInput = AbstractInput((props) => (
         type="number"
         props={{step: '0.1', min: 0}}
         inputAddon={
-            <InputGroupAddon addonType="append">°C</InputGroupAddon>
+            <InputGroupAddon addonType="append">°</InputGroupAddon>
         }
         {...props}
     />

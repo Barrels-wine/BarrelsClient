@@ -24,15 +24,15 @@ const Routes = ({location}) => {
           <PageLayout>
               <Switch location={location}>
                   <Route
-                    path={`${process.env.PUBLIC_URL}${routesNames.LOGIN}`}
+                    path={routesNames.LOGIN}
                     render={(props) => (<Login {...props} />)}
                   />
                   <Route
-                    path={`${process.env.PUBLIC_URL}${routesNames.LOGOUT}`}
+                    path={routesNames.LOGOUT}
                     render={(props) => (<Logout {...props} />)}
                   />
                   <Route
-                    path={`${process.env.PUBLIC_URL}${routesNames.NOT_FOUND}`}
+                    path={routesNames.NOT_FOUND}
                     render={(props) => (<NotFound {...props} />)}
                   />
               </Switch>
@@ -51,14 +51,14 @@ const Routes = ({location}) => {
                         <Switch location={location}>
                             <SecureRoute
                                 exact
-                                path={`${process.env.PUBLIC_URL}${routesNames.DASHBOARD}`}
+                                path={routesNames.DASHBOARD}
                                 render={(props) => <Dashboard {...props} />}
                             />
                             <SecureRoute
-                                path={`${process.env.PUBLIC_URL}${routesNames.WINES}`}
+                                path={routesNames.WINES}
                                 render={(props) => <WinesList {...props} />}
                             />
-                            <Redirect to={`${process.env.PUBLIC_URL}${routesNames.NOT_FOUND}`} />
+                            <Redirect to={routesNames.NOT_FOUND} />
                         </Switch>
                     </div>
                 </CSSTransition>

@@ -84,6 +84,17 @@ const TemperatureInput = AbstractInput((props) => (
     />
 ));
 
+const DegreeInput = AbstractInput((props) => (
+    <InputRender
+        type="number"
+        props={{step: '0.1', min: 0}}
+        inputAddon={
+            <InputGroupAddon addonType="append">°</InputGroupAddon>
+        }
+        {...props}
+    />
+));
+
 export default {
     TextInput,
     TextareaInput,
@@ -97,4 +108,5 @@ export default {
     PercentInput,
     TelephoneInput,
     TemperatureInput,
+    DegreeInput,
 };

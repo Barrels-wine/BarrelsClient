@@ -2,8 +2,8 @@
 import * as React from 'react';
 
 import {
-    TemperatureField,
     SelectField,
+    DegreeField,
 } from '../../Fields/Fields';
 import { FormCard } from '../../Common';
 
@@ -25,7 +25,7 @@ const CategoryCard = () => (
             optionPrefix="reference.color."
             choices={['red', 'rose', 'white']}
         />
-        <TemperatureField
+        <DegreeField
             name="alcoholDegree"
             label="wines.fields.alcohol_degree"
         />

@@ -51,6 +51,7 @@ export const PercentField = ConnectedField(Simple.PercentInput);
 export const TelephoneField = ConnectedField(Simple.TelephoneInput);
 export const HiddenField = ConnectedField(Simple.HiddenInput);
 export const TemperatureField = ConnectedField(Simple.TemperatureInput);
+export const DegreeField = ConnectedField(Simple.DegreeInput);
 export const SelectField = ConnectedField(Select);
 export const RatingField = ConnectedRatingField(Rating);
 export const CountryField = ConnectedField(Geography.CountryInput);

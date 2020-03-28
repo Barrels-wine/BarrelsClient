@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 
-import { AddWineItem, Header, SubHeader, SubItem, Item } from './Items';
+import { AddWineItem, Header, ParentHeader, ParentItem, Item } from './Items';
 import { isItemActive } from './utils';
 
 const SidebarItem = ({item, open, toggle, currentRoute}) => {
@@ -16,14 +16,14 @@ const SidebarItem = ({item, open, toggle, currentRoute}) => {
 
     if (item.type === 'submenu') {
         return (
-            <SubItem
+            <ParentItem
                 key={item.id}
                 item={item}
                 open={open}
                 toggle={toggle}
                 active={isItemActive(item, currentRoute)}
             >
-                <SubHeader item={item} key={item.id}/>
+                <ParentHeader item={item} key={item.id}/>
                 {item.submenu.map((subitem) =>
                     <Item
                         key={subitem.id}
@@ -31,7 +31,7 @@ const SidebarItem = ({item, open, toggle, currentRoute}) => {
                         active={isItemActive(subitem, currentRoute)}
                     />
                 )}
-            </SubItem>
+            </ParentItem>
         );
     }
 

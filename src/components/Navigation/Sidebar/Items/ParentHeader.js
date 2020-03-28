@@ -2,10 +2,10 @@
 import * as React from 'react';
 import { FormattedMessage } from 'react-intl';
 
-const SubHeader = ({ item }) => (
+const ParentHeader = ({ item }) => (
     <li className="sidebar-subnav-header">
         <FormattedMessage id={item.label} />
     </li>
 );
 
-export default SubHeader;
+export default ParentHeader;

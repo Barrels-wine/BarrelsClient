@@ -25,7 +25,7 @@
     "i18n-iso-countries": "^3.7.3",
     "jwt-decode": "^2.2.0",
     "lodash": "^4.17.5",
-    "moment": "^2.22.2",
+    "moment": "^2.29.2",
     "node-sass-chokidar": "^1.2.2",
     "normalizr": "^3.2.4",
     "npm-run-all": "^4.1.2",
